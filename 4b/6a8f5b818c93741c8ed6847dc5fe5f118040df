@@ -1,0 +1,19 @@
+docs/research/parallel-tooling.md
+  s_a5d323d6225762::t_9ce2c4dfe168e8 1-157
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4b6a8f5b818c93741c8ed6847dc5fe5f118040df",
+  "prompts": {},
+  "sessions": {
+    "s_a5d323d6225762": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bae68ab2-38db-4c26-9d21-192a27a39fd4",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
