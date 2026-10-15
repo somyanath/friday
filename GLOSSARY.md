@@ -66,3 +66,31 @@ Somya's side-by-side comparison of every running variant, ending in one winner o
 **Ship gate**:
 Somya's visual sign-off on a surface or refinement before it merges.
 _Avoid_: final review
+
+### Agents and models
+
+**Builder**:
+The agent that builds one variant from its direction.
+_Avoid_: implementer, worker
+
+**Critic**:
+The agent that judges a running variant's screenshots against its direction and sends it back for another round until it passes. Distinct from a code reviewer, which reads diffs.
+_Avoid_: reviewer, judge
+
+**Model family**:
+The models from one vendor, such as Claude (Haiku, Sonnet, Opus) or GPT (Luna, Sol, Astra).
+_Avoid_: provider, vendor
+
+### Skills
+
+**Upstream**:
+A skill collection made by someone else that Friday draws on: Matt Pocock's skills, Emil Kowalski's skills, or pstack.
+_Avoid_: source, vendor
+
+**Owned skill**:
+A skill that lives in Friday and that Friday may change freely, whether copied from an upstream or written by Friday.
+_Avoid_: fork, vendored skill
+
+**In-place skill**:
+An upstream skill Friday uses exactly as installed, never edited, copied or renamed.
+_Avoid_: external skill, dependency
