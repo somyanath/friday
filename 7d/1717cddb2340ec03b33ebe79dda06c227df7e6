@@ -1,0 +1,19 @@
+docs/research/pstack-autonomy.md
+  s_84b592282820ab::t_5970cd75920667 1-252
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7d1717cddb2340ec03b33ebe79dda06c227df7e6",
+  "prompts": {},
+  "sessions": {
+    "s_84b592282820ab": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7901ae43-51e0-49b9-a69e-67ecce10ab29",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
