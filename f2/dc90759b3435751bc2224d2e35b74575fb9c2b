@@ -1,0 +1,19 @@
+docs/research/pstack-portability.md
+  s_e80d69aa5d25b2::t_590418cad5ad96 7-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f2dc90759b3435751bc2224d2e35b74575fb9c2b",
+  "prompts": {},
+  "sessions": {
+    "s_e80d69aa5d25b2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "37ba10f1-cace-4571-acf6-d3c553537501",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
