@@ -79,11 +79,23 @@ The phase that polishes the final pick from the Variant gate and writes down its
 Somya's pick of three or four directions to build.
 
 **Variant gate**:
-Somya's side-by-side comparison of the running variants, in two rounds: a shortlist of one or two after the image step (a combination counts as one), then a final pick among the shortlisted variants, each built with two different videos.
+Somya's side-by-side comparison of the running variants, in two rounds: a shortlist of one or two after the image step (a combination counts as one), then a final pick among the finalists.
+
+**Finalist**:
+A shortlisted variant built with one of its two videos, compared at the Variant gate's final pick.
+_Avoid_: option, take, cut
 
 **Ship gate**:
 Somya's visual sign-off on a surface or refinement before it merges.
 _Avoid_: final review
+
+**Handoff**:
+The work and its evidence an agent gives Somya at a gate.
+_Avoid_: package, submission, deliverable
+
+**Gate record**:
+Somya's decision at a gate, written down: what was picked or combined, and notes for the next step.
+_Avoid_: verdict, approval, result
 
 ### Agents and models
 
