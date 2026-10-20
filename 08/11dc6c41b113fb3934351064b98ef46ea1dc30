@@ -1,0 +1,26 @@
+docs/tasks/codex-flow-setup/README.md
+  s_cf9721b9fd30ef::t_36156db8cdba9c 94
+  s_cf9721b9fd30ef::t_a2f5458edff9d0 18,22-28
+  s_cf9721b9fd30ef::t_37aa96a99855d4 61-78
+  s_cf9721b9fd30ef::t_06932f1a5d47d6 29
+docs/tasks/codex-flow-setup/cdp-shot.mjs
+  s_cf9721b9fd30ef::t_09257b8db8275f 1-40
+docs/tasks/codex-flow-setup/sandbox-run-cdp.md
+  s_cf9721b9fd30ef::t_b65fb1268fd419 1-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0811dc6c41b113fb3934351064b98ef46ea1dc30",
+  "prompts": {},
+  "sessions": {
+    "s_cf9721b9fd30ef": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1a924220-c347-45cf-aa31-b6d40a8b6551",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
