@@ -44,6 +44,16 @@ _Avoid_: frontend work
 A job that changes nothing a user sees, such as backend, data or tooling. It passes through no gate.
 _Avoid_: backend work
 
+### Projects
+
+**Project record**:
+Friday's private record of one project: its Autonomy level, its Surfaces, notes, and the Gate records moved in at each Ship gate. A project's own files never hold it.
+_Avoid_: project profile, project config, project notes
+
+**Rule conflict**:
+A place where a project's own rules stop or change a step of Friday's process, such as a project that asks before every commit. The project's rule wins, and Somya hears of the conflict before the step runs.
+_Avoid_: clash, override
+
 ### Design process
 
 **Surface**:
