@@ -1,0 +1,23 @@
+docs/specs/variant-gate-tool.md
+  s_29e26d9d2df365::t_54a53574b9bc7c 1-125
+GLOSSARY.md
+  s_29e26d9d2df365::t_4eb06ac3fa0520 100-107
+docs/adr/0005-variant-gate-reads-a-neutral-handoff.md
+  s_29e26d9d2df365::t_7345eecb7799f1 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d104449858e78a4632c8797e471e264747765253",
+  "prompts": {},
+  "sessions": {
+    "s_29e26d9d2df365": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "51c18a70-60c8-4c53-9a9f-a819a766c846",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
