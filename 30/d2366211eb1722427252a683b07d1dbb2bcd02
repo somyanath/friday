@@ -1,0 +1,22 @@
+GLOSSARY.md
+  s_5a167101d7c978::t_8597965e269167 82-86,92-98
+  s_5a167101d7c978::t_1f6c47813a1e0c 99
+docs/adr/0005-variant-gate-reads-a-neutral-handoff.md
+  s_5a167101d7c978::t_fa1f30c7ebaaa3 1-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "30d2366211eb1722427252a683b07d1dbb2bcd02",
+  "prompts": {},
+  "sessions": {
+    "s_5a167101d7c978": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ade72df0-a819-4fc3-abab-a30dc5b39d1e",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
