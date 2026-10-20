@@ -7,16 +7,24 @@ Somya's private agent workflow: the skills, routing, and parallel-agent operatin
 ### Parallel work
 
 **Fan-out**:
-One session spawning several subagents on the same problem, whose results come back to that session for a pick.
+One session starting several subagents and collecting their results, such as Discover's idea lists or the agents building one piece of non-UI work.
 _Avoid_: parallel agents (ambiguous), swarm
 
 **Fleet**:
-Several independent agent sessions, each in its own git worktree on its own branch, reviewed by Somya.
+Several independent agent sessions, each in its own git worktree on its own branch, each taking its own job to the end, such as Define's four Builders.
 _Avoid_: parallel agents (ambiguous), background agents
 
 **Unattended run**:
 Agent work that continues without Somya present, such as an overnight run or a scheduled job.
 _Avoid_: async, autopilot
+
+**Autonomy level**:
+How far a project's non-UI work may run without Somya: attended, unattended to PR, or unattended to merge. Somya raises it per project.
+_Avoid_: autopilot, trust level
+
+**Always-pause list**:
+The actions no agent takes without Somya at any autonomy level, such as force-pushing, deploying, deleting data or merging UI work.
+_Avoid_: blocklist, never list
 
 **Divergent work**:
 Parallel work where several agents attempt the same job and Somya keeps one result.
@@ -25,6 +33,16 @@ _Avoid_: competition, bake-off
 **Convergent work**:
 Parallel work where agents do different jobs and every result is kept.
 _Avoid_: parallel features
+
+### Kinds of work
+
+**UI work**:
+Any job that changes what a user sees: a Surface or a Refinement. It always stops at its gates.
+_Avoid_: frontend work
+
+**Non-UI work**:
+A job that changes nothing a user sees, such as backend, data or tooling. It passes through no gate.
+_Avoid_: backend work
 
 ### Design process
 
@@ -55,13 +73,13 @@ The phase that generates many directions and narrows them; it ends at the Direct
 The phase that builds each chosen direction as a variant, in parallel; it ends at the Variant gate.
 
 **Deliver**:
-The phase that polishes the winning variant and writes down its design language; it ends at the Ship gate.
+The phase that polishes the final pick from the Variant gate and writes down its design language; it ends at the Ship gate.
 
 **Direction gate**:
 Somya's pick of three or four directions to build.
 
 **Variant gate**:
-Somya's side-by-side comparison of every running variant, ending in one winner or a combination.
+Somya's side-by-side comparison of the running variants, in two rounds: a shortlist of one or two after the image step (a combination counts as one), then a final pick among the shortlisted variants, each built with two different videos.
 
 **Ship gate**:
 Somya's visual sign-off on a surface or refinement before it merges.
@@ -70,16 +88,50 @@ _Avoid_: final review
 ### Agents and models
 
 **Builder**:
-The agent that builds one variant from its direction.
-_Avoid_: implementer, worker
+The agent that writes one change on its own branch: a variant, or one piece of non-UI work.
+_Avoid_: implementer, worker, owner
+
+**Host session**:
+A Claude Code session that runs the loop for a Builder from another model family and calls that Builder for every line of code, writing none itself.
+_Avoid_: wrapper, proxy
 
 **Critic**:
-The agent that judges a running variant's screenshots against its direction and sends it back for another round until it passes. Distinct from a code reviewer, which reads diffs.
+The agent that judges a running variant's screenshots against its direction and sends it back for another round until it passes. Distinct from a Verifier, which checks that the code works.
 _Avoid_: reviewer, judge
+
+**Verifier**:
+An agent that checks work it did not write and gives a Verdict, from the other model family where possible.
+_Avoid_: reviewer, judge, checker
 
 **Model family**:
 The models from one vendor, such as Claude (Haiku, Sonnet, Opus) or GPT (Luna, Sol, Astra).
 _Avoid_: provider, vendor
+
+### Verification
+
+**Verification**:
+An agent proving its own work on the running app, with evidence, before the work goes on: to Somya at a gate, or to a merge.
+_Avoid_: testing, self-review, QA
+
+**Verification skill**:
+A project's own skill that launches its app, drives it the way a user does, and captures evidence, with a feature map of what to check.
+_Avoid_: control skill, test harness
+
+**Live check**:
+One run of the real app through the Verification skill: a scenario, the evidence it saves, and the condition that makes it pass.
+_Avoid_: live lane, smoke test
+
+**Verdict**:
+A Verifier's Pass, Fail or Inconclusive on one exact commit. A new commit voids it unless the patch is unchanged.
+_Avoid_: approval, review, sign-off
+
+**Finish condition**:
+A statement of done, written before work starts, that commands can pass or fail.
+_Avoid_: predicate, exit condition, definition of done, a duration
+
+**Decision trail**:
+A run's append-only log of decisions, each with its reason and a pointer to evidence, reviewed by the other model family before the work is handed back.
+_Avoid_: decision log, audit log
 
 ### Skills
 
