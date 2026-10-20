@@ -9,6 +9,7 @@ Friday's design process and whatever shows the Variants meet at two files per ro
 ## Consequences
 
 - **The gate step is one swappable command.** It takes a round's folder and must leave a Gate record in it. On day one it is Friday's own: it writes a local comparison page, opens it, and asks Somya in the terminal. A later tool replaces that command and nothing else.
+- **The family reveal goes in the sidecar, never the Gate record.** Friday writes it beside the round's pick and prints it in the terminal once the gate command exits, so the Gate record's format holds nothing a public tool can't fill. Changed in "Should Friday get its own Variant gate tool, and where does it stop?" (somyanath/friday#16, 2026-10-20), which also specifies that tool in `docs/specs/variant-gate-tool.md`.
 - **The fixed letter-to-family table from "How does parallel work run day to day?" becomes a shuffled mapping kept in the sidecar.** Blinding is best effort: Sol Variants run in Sonnet host sessions, so Superset shows four Claude sessions, but a terminal or a write-up's style can still give a family away.
 - **The Handoff leaves out Critic scores and Critic identity.** It says only whether the Critic loop passed or stopped at its cap, with the Critic's open points.
 - **The comparison page never leaves Somya's machine:** no Artifacts and no Superset Pages, as with Pages in ADR-0003.

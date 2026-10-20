@@ -97,6 +97,14 @@ _Avoid_: package, submission, deliverable
 Somya's decision at a gate, written down: what was picked or combined, and notes for the next step.
 _Avoid_: verdict, approval, result
 
+**Element note**:
+A note Somya pins to one element of a running variant at the Variant gate, saved with enough to find that element again.
+_Avoid_: annotation, pin, comment
+
+**Family reveal**:
+Telling Somya which model family built each variant, once a round's pick at the Variant gate is written.
+_Avoid_: unblinding
+
 ### Agents and models
 
 **Builder**:
