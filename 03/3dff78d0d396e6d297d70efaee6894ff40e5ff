@@ -1,0 +1,24 @@
+docs/adr/0006-project-rules-win-verification-skill-is-the-projects.md
+  s_d698b64e02f2d2::t_afacfa245b7d08 1-15
+CLAUDE.md
+  s_d698b64e02f2d2::t_45fa79de82b202 1
+GLOSSARY.md
+  s_d698b64e02f2d2::t_5c326ce2e8c168 53-56
+  s_d698b64e02f2d2::t_074844df5f1dc5 47-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "033dff78d0d396e6d297d70efaee6894ff40e5ff",
+  "prompts": {},
+  "sessions": {
+    "s_d698b64e02f2d2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2793e447-cd6d-4b4c-a9f8-503e53a72816",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
