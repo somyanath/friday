@@ -1,0 +1,35 @@
+docs/tasks/codex-flow-setup/README.md
+  s_cf9721b9fd30ef::t_3f62ab0d071865 1-66
+docs/tasks/codex-flow-setup/critic-input.html
+  s_cf9721b9fd30ef::t_d1ffa17ea0a9ac 1-29
+docs/tasks/codex-flow-setup/sandbox-check-chrome.sh
+  s_cf9721b9fd30ef::t_d586f96605e30e 1-18
+docs/tasks/codex-flow-setup/sandbox-check.sh
+  s_cf9721b9fd30ef::t_c89cb73bbd055e 1-16
+docs/tasks/codex-flow-setup/sandbox-run-chrome.md
+  s_cf9721b9fd30ef::t_2909cb7c7446bc 1-9
+docs/tasks/codex-flow-setup/sandbox-run-network-off.md
+  s_cf9721b9fd30ef::t_bd6da29ddf2fd5 1-31
+docs/tasks/codex-flow-setup/sandbox-run-network-on.md
+  s_cf9721b9fd30ef::t_4eb136849fd2ee 1-12
+docs/tasks/codex-flow-setup/verdict-astra.md
+  s_cf9721b9fd30ef::t_67860717db56c2 1-7
+docs/tasks/codex-flow-setup/verdict-sol.md
+  s_cf9721b9fd30ef::t_40b045200597b2 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "67d5fb151fb749c6966f828f3d4ff39b8fdccaf1",
+  "prompts": {},
+  "sessions": {
+    "s_cf9721b9fd30ef": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1a924220-c347-45cf-aa31-b6d40a8b6551",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
