@@ -4,6 +4,53 @@ Ticket: #4. Researched 2026-10-13.
 
 Source read: `cursor/plugins` at commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454` (shallow clone, read as data, nothing run), plugin version 0.15.23 (`pstack/plugin.json`). Every `pstack/...` and `cursor-team-kit/...` path below is relative to that repo root and links to `https://github.com/cursor/plugins/blob/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/<path>` (read 2026-10-13). Doc claims cite the doc URL, read 2026-10-13.
 
+## Update 2026-10-20: pstack now installs in Claude Code
+
+Re-read at `cursor/plugins` commit `88d47514b82e7c44f00f2b2a72ff6dd12158038c` (2026-10-19), plugin version 0.15.29, for "Now that pstack installs in Claude Code, does Friday still own copies of it?" (#20). The rest of this report describes `dbf4981` and still holds unless this section says otherwise. Paths in this section are relative to the repo root at `88d4751`, which is also where its line numbers come from. Read as data, nothing run.
+
+**What changed.** pstack added a Claude Code install on 2026-10-16 (`182f2ce`, "install pstack in Claude Code from a generated tree (#637)") and closed three gaps in it on 2026-10-17 (`1b80080`, #705).
+
+- The repo's marketplace file now lists pstack with its source at `./harness/pstack/claude-code` (`.claude-plugin/marketplace.json:15`). The install is `/plugin marketplace add cursor/plugins`, then `/plugin install pstack@cursor-plugins` (`pstack/skills/poteto-help/SKILL.md:46`). Commands take a `pstack:` prefix, such as `/pstack:poteto-mode`.
+- The install tree is generated, not hand-ported: "This folder is generated from `pstack/skills`, `pstack/agents`, `pstack/docs/guide`, `pstack/docs/harness/claude-code.md`, `pstack/README.md`, `pstack/LICENSE`, and `pstack/plugin.json`. Do not edit it by hand." (`harness/pstack/README.md:3`). CI fails when the tree drifts from the source (`.github/workflows/validate-plugins.yml:32` runs the generator with `--check`).
+- The skill text is unchanged. The tree is `pstack/skills` plus one added line in 23 of the 56 skills: "In Claude Code, read [the Claude Code adapter](../../docs/harness/claude-code.md) once per session before you follow this skill. It maps the Cursor names in pstack skills to Claude Code." The two subagents are identical to the source (diffed).
+- The adapter, `pstack/docs/harness/claude-code.md`, is a table the agent applies while it runs a skill: "pstack skills use Cursor names. In Claude Code, read this file once per session, then map each Cursor name in a skill with the tables below." (line 3).
+
+**Dependency rows above that the adapter now answers** (line numbers in `pstack/docs/harness/claude-code.md`):
+
+| Cursor feature | Adapter's Claude Code mapping |
+|---|---|
+| `Task`, `subagent_type: generalPurpose` | `Agent`, `general-purpose` (lines 9, 19) |
+| `readonly: true` | `subagent_type: "Explore"`, with "do not edit files" in the brief and a `git status` check afterward (line 21) |
+| `environment: "cloud"`, `cloud_base_branch` | `isolation: "worktree"`; the worker checks out the named branch first (lines 23, 25) |
+| `AskQuestion` | `AskUserQuestion`; plain text in `-p` mode (line 10) |
+| `~/.cursor/rules/pstack-models.mdc` | `~/.claude/rules/pstack-models.md`, which pstack says Claude Code loads into every new session (lines 37, 42) |
+| Cursor transcripts | `~/.claude/projects/<slug>/<session>.jsonl`, with subagent transcripts in `<session>/subagents/` (line 56). This matches what is on disk here. |
+| `.cursor/rules/*.mdc` | `CLAUDE.md`, or `AGENTS.md` when no `CLAUDE.md` exists (line 54) |
+| Bugbot, built-in PR tool | Bugbot comments are triaged as ordinary review threads; the PR tool becomes the step's forge command, such as `gh pr create` (lines 65, 67) |
+| Automations, a cloud agent's own machine or dashboard | Skipped with "Skipped in Claude Code: <step>. <reason>." and the run goes on: "Do not stop, ask, or retry." (lines 60, 64, 66) |
+
+**What moves.**
+
+- `setup-pstack` is no longer Cursor-only. In Claude Code it detects models from the `Agent` tool schema and writes `~/.claude/rules/pstack-models.md` (adapter lines 42 to 46). Grok defaults become `inherit-parent` (line 45).
+- `poteto-help` is no longer Cursor-only. It now documents the Claude Code install (`pstack/skills/poteto-help/SKILL.md:46`).
+- The Not verified item on a root-level `plugin.json` is answered: the generated tree ships `.claude-plugin/plugin.json`, and installing pstack as a plugin is now the supported route.
+- Counts: 56 skill directories (32 workflow skills plus 24 principles), 23 playbooks, 2 subagents. New since `dbf4981`: `sharpen`, `create-formal-verification-skill`, `maintain-formal-verification-skill`.
+
+**What does not move.**
+
+- Grok and GPT still don't run: "A `grok-*`, `gpt-*`, or other non-Claude slug | Omit `model` so the agent runs on the session model, and say so." (line 35). interrogate, arena and architect still lose their second model family in Claude Code. Friday's second family is GPT through Codex (ADR-0001), which the adapter never calls.
+- make-bot-ui and the benny pack stay Cursor-only, since Automations are skipped (line 64). Orchestrate's cloud fleet still needs Cursor's own cloud agents (line 66).
+- 55 of the 56 skills still set `disable-model-invocation: true` (only `setup-pstack` doesn't), so the `/loop` note above holds. The adapter adds: "The `Skill` tool refuses most pstack skills." (line 12). pstack's skills reach each other by reading `<pstack>/skills/<name>/SKILL.md` with `Read`.
+- The pull against Somya's gates gets stronger, not weaker: the skip rule says "Do not stop, ask, or retry." (line 60), on top of `never-block-on-the-human`.
+
+**What it means for Friday's decisions.**
+
+- *Does Friday use upstream skills in place or copy and own them?* Its record says pstack can't be used in place because "it's a Cursor plugin and isn't installed here", and ADR-0002 says "pstack is a Cursor plugin that has to be ported anyway". Neither is true now. The ADR's other reasons are untouched: a plugin is switched on or off as a whole, and merged skills need copies. Reopened as #20.
+- *Porting cost.* An owned copy can start from `harness/pstack/claude-code/` at a pinned commit and lean on the adapter's table, instead of rewriting each skill's Cursor names by hand. Whether copies keep Cursor names plus the adapter (smaller diffs against upstream) or are rewritten in Claude Code names is part of #20.
+- *What is Friday's single entry command and which playbooks does it route to?* A router over user-only skills can't call them with the `Skill` tool; pstack's own router reads them by path. Friday's router has the same constraint for any owned copy kept user-only.
+
+**Not verified.** Nothing was installed or run. That Claude Code loads every `.md` file in `~/.claude/rules/` is pstack's claim (adapter line 42), not checked against Claude Code's docs. It matters because that rule would reach every project on the machine, not only Friday's.
+
 ## Short answer
 
 **Licence.** Both pstack and cursor-team-kit are plain MIT (`pstack/LICENSE`, copyright 2026 Lauren Tan; `cursor-team-kit/LICENSE`, copyright 2026 Cursor; the two licence bodies are identical after the copyright line). MIT lets Friday copy, modify and keep the result in a private repo. The one condition is to keep the copyright and permission notice with the copied files. No other licence file or "adapted from" notice turned up inside pstack (grep, see Sources). Not legal advice.
