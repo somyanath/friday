@@ -15,8 +15,17 @@ Test outputs for [Set up Codex and Flow for images, video and critiques](https:/
 | Server on a port inside the sandbox, network off | Fails: `bind` gives `Operation not permitted` | 43 s | 78,167 (64,512) | 642 |
 | Same, with `-c 'sandbox_workspace_write.network_access=true'` | Server binds; curl to 127.0.0.1 gets HTTP 200 | 21 s | 77,514 (64,256) | 214 |
 | Headless Chrome against that server, with and without `--no-sandbox` | Fails: Chrome aborts at launch (exit 134), no log | 28 s | 77,736 (64,384) | 398 |
+| Chrome started **outside** the sandbox with `--remote-debugging-port`, driven from inside over DevTools on 127.0.0.1 | Works: page loaded, title read, 1440×900 screenshot saved | 17 s | 51,723 (25,600) | 106 |
 
 The times are the whole `codex exec` run. The token counts come from the `turn.completed` event of `--json`.
+
+**Limit use:** after the first 11 runs (814,720 input tokens, 633,344 cached), Settings → Usage still showed over 99% of the weekly Codex limit left (Somya, 2026-10-20). The 5-hour reading wasn't taken.
+
+**Flow test clip** (made by hand by Somya, 2026-10-20):
+- **Clip:** 5 seconds, 16:9, Veo 3.1 Quality. [Clip](https://flow.google.com/shared/video/4e7c8210-08b9-4549-abab-8c9c116ede58).
+- **Cost:** 20 credits.
+- **Monthly capacity:** Google AI Pro's 1,000 monthly credits make about 50 such clips. A Variant gate round with two shortlisted Variants, two videos each, uses 80 credits, so about 12 Surfaces a month.
+- **Not checked:** whether the 50 free daily credits cover Veo 3.1 Quality.
 
 **Calls lost before the fix:**
 
@@ -49,6 +58,24 @@ The image skill writes to `~/.codex/generated_images/<thread>/` and then copies 
 
 Sandbox: the model ran [`sandbox-check.sh`](sandbox-check.sh) and [`sandbox-check-chrome.sh`](sandbox-check-chrome.sh) and returned their output verbatim.
 
+Browser from outside the sandbox. First, Claude Code started the server and Chrome outside Codex's sandbox:
+
+```sh
+python3 -m http.server 4310 --bind 127.0.0.1 &
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+  --remote-debugging-port=4311 --remote-debugging-address=127.0.0.1 \
+  --user-data-dir=<scratch>/cdp-profile about:blank &
+```
+
+Then Codex ran [`cdp-shot.mjs`](cdp-shot.mjs) inside `workspace-write` with `-c 'sandbox_workspace_write.network_access=true'`. The script uses Node 24's built-in `fetch` and `WebSocket` and has no dependencies. It drives that Chrome over the DevTools protocol.
+
+**Through the desktop app** (Somya's question, not tested): Codex 0.163 can reach the desktop app's sessions.
+- `codex agents` lists the sessions on the shared local app-server.
+- `codex queue --thread <id> --message … --remote unix://…` puts a message into a running session.
+- `codex remote-control start` runs that app-server as a daemon.
+
+All three are marked experimental. The route would add a GUI app to the loop, and nothing shows the desktop's tools escape the sandbox. The outside-Chrome route above needs none of that.
+
 ## Setup facts
 
 - **Quarantined code-mode host.** Homebrew leaves `com.apple.quarantine` on `bin/codex-code-mode-host`, although `spctl` accepts it as "Notarized Developer ID" (OpenAI OpCo). Every tool call inside `codex exec` routes through that host. While the flag is set, each call times out after 30 s with `timed out negotiating with the code-mode host`, even `pwd`, and calls with no tools still work. Somya removed the flag with `xattr -d com.apple.quarantine …/bin/codex-code-mode-host`; Claude Code's auto mode refuses to do it ("Security Weaken"). This is the known bug in [openai/codex#38816](https://github.com/openai/codex/issues/38816) and [#47521](https://github.com/openai/codex/issues/47521). Every `brew upgrade --cask codex` installs a new, quarantined host.
@@ -64,3 +91,4 @@ Sandbox: the model ran [`sandbox-check.sh`](sandbox-check.sh) and [`sandbox-chec
 - [`verdict-sol.md`](verdict-sol.md) and [`verdict-astra.md`](verdict-astra.md): the two critiques. Both score it 3/10, and only Astra flags the competing CTAs.
 - [`imagegen-ledgerly-hero.png`](imagegen-ledgerly-hero.png): the `$imagegen` test image at 1536×1024.
 - `sandbox-run-*.md`: the verbatim output of each sandbox run.
+- [`cdp-shot.mjs`](cdp-shot.mjs), [`sandbox-run-cdp.md`](sandbox-run-cdp.md) and [`shot-cdp.png`](shot-cdp.png): the outside-Chrome run, its output and its screenshot.
