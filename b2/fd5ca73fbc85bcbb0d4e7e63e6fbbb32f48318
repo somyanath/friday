@@ -1,0 +1,29 @@
+docs/adr/0004-non-ui-work-merges-on-verification.md
+  s_1ce67d2ed98756::t_7421469af40574 24-35
+docs/adr/0007-agents-act-as-an-agent-account-github-holds-the-gates.md
+  s_1ce67d2ed98756::t_e0ffb300da77c2 1-30
+docs/adr/0003-superset-hosts-fleets-claude-code-orchestrates.md
+  s_1ce67d2ed98756::t_457e450af14025 21
+docs/adr/0006-project-rules-win-verification-skill-is-the-projects.md
+  s_1ce67d2ed98756::t_dbb4c557f7bf54 15
+GLOSSARY.md
+  s_1ce67d2ed98756::t_ec247522df1e83 26,29-31
+  s_1ce67d2ed98756::t_8e3aa0f627814b 140-143
+  s_1ce67d2ed98756::t_5e343c32374f68 32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b2fd5ca73fbc85bcbb0d4e7e63e6fbbb32f48318",
+  "prompts": {},
+  "sessions": {
+    "s_1ce67d2ed98756": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d10d2193-bc2a-4a39-b6b0-be19b522ef61",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
