@@ -184,3 +184,7 @@ _Avoid_: fork, vendored skill
 **In-place skill**:
 An upstream skill Friday uses exactly as installed, never edited, copied or renamed.
 _Avoid_: external skill, dependency
+
+**Upstream check**:
+A review of everything an upstream changed since Friday last looked, with a verdict on each change for Somya to approve. It runs only when Somya asks.
+_Avoid_: sync, upgrade
