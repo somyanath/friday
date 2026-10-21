@@ -1,0 +1,21 @@
+GLOSSARY.md
+  s_e8e6ba31b93b8b::t_560d27d739df69 187-190
+docs/adr/0002-own-mit-upstreams-use-emils-skills-in-place.md
+  s_e8e6ba31b93b8b::t_1ce1e7196af545 7,11-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c3ee81979f73fc268a45151015e288c55d9caf82",
+  "prompts": {},
+  "sessions": {
+    "s_e8e6ba31b93b8b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8682eecb-e912-496a-ba56-98993827fb59",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
