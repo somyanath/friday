@@ -18,7 +18,7 @@ Friday runs every Fleet in Superset workspaces on its free tier, and keeps every
   - Superset Pro (automations, remote access, mobile), which is over budget.
   - Pages and the hosted MCP server, which upload content.
   - Codex as Superset's own agent (ADR-0001).
-  - Superset's permission-bypass default, which Friday replaces with its own rules.
+  - Superset's permission-bypass default. Its Claude command becomes `claude --permission-mode auto` for every project, and its Codex preset is switched off. Decided in "Which settings enforce Friday's merge rules in each project?" (somyanath/friday#19, 2026-10-21; ADR-0007).
 - **Fan-out subagents stay inside Claude Code,** in Claude Code's own worktrees, because Superset hosts sessions, not subagents.
 - **Each Variant built by GPT-6.1 Sol runs inside a host session.** The host is a Claude Code session on Sonnet that only does housekeeping and calls `codex exec` for every line of code. All four Variants share one loop.
 - **Somya accepts two costs:** Superset's desktop telemetry (events, not code, always on while signed in) and a Superset account. Superset also writes managed skills into `~/.agents/skills` and `~/.claude/skills/superset`.

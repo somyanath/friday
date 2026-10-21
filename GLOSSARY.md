@@ -23,8 +23,12 @@ How far a project's non-UI work may run without Somya: attended, unattended to P
 _Avoid_: autopilot, trust level
 
 **Always-pause list**:
-The actions no agent takes without Somya at any autonomy level, such as force-pushing, deploying, deleting data or merging UI work.
+The actions no agent takes without Somya at any autonomy level, such as force-pushing anything but its own branch, running a deploy, deleting data or merging UI work.
 _Avoid_: blocklist, never list
+
+**Pause path**:
+A path in a project whose change stops a PR for Somya, because it holds what a user sees, a migration, deploy config or a check. Each project lists its own.
+_Avoid_: protected path, sensitive path
 
 **Divergent work**:
 Parallel work where several agents attempt the same job and Somya keeps one result.
@@ -132,6 +136,10 @@ _Avoid_: reviewer, judge
 **Verifier**:
 An agent that checks work it did not write and gives a Verdict, from the other model family where possible.
 _Avoid_: reviewer, judge, checker
+
+**Agent account**:
+The GitHub machine account every agent pushes, opens PRs and merges under in Friday projects, kept apart from Somya's own account.
+_Avoid_: bot, bot account, machine user
 
 **Model family**:
 The models from one vendor, such as Claude (Haiku, Sonnet, Opus) or GPT (Luna, Sol, Astra).
