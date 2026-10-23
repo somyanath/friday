@@ -107,6 +107,10 @@ _Avoid_: final review
 The work and its evidence an agent gives Somya at a gate.
 _Avoid_: package, submission, deliverable
 
+**Pickup note**:
+A note one session writes so another session can pick up the work: later, in another tool or folder, or alongside it. It holds the goal, progress, what's verified, next steps and pointers.
+_Avoid_: handoff, handover, resume note
+
 **Gate record**:
 Somya's decision at a gate, written down: what was picked or combined, and notes for the next step.
 _Avoid_: verdict, approval, result
@@ -186,5 +190,9 @@ An upstream skill Friday uses exactly as installed, never edited, copied or rena
 _Avoid_: external skill, dependency
 
 **Upstream check**:
-A review of everything an upstream changed since Friday last looked, with a verdict on each change for Somya to approve. It runs only when Somya asks.
+A review of everything an upstream changed since Friday last looked, with a Ruling on each change for Somya to approve. It runs only when Somya asks.
 _Avoid_: sync, upgrade
+
+**Ruling**:
+Friday's decision on one upstream piece: keep, cut, merge or replace for a skill, or adopt, adapt or skip for an upstream change.
+_Avoid_: verdict, disposition
