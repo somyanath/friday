@@ -1,0 +1,25 @@
+GLOSSARY.md
+  s_0a0679905a4344::t_5a30011590a854 110-113
+  s_0a0679905a4344::t_1c6a346f041253 193,195-198
+docs/specs/skill-rulings.md
+  s_0a0679905a4344::t_4653ad933d111d 508
+  s_0a0679905a4344::t_3505378ac6be9f 1-507,509-557
+docs/adr/0008-emils-skills-lead-ui-work.md
+  s_0a0679905a4344::t_42f9cc30c88bfd 1-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4b347fc5233eb6fe9960a1f25e4c9d75fc3ad59a",
+  "prompts": {},
+  "sessions": {
+    "s_0a0679905a4344": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c3418019-f614-45db-a89d-1927843bb908",
+        "model": "unknown"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
