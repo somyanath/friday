@@ -4,9 +4,13 @@ Same fields as the usage log in [How does parallel work run day to day?](https:/
 
 | Date | Shape | Agents per model | Critic rounds | Claude 5h before → after | Claude weekly before → after | Codex 5h before → after | Codex weekly before → after |
 |---|---|---|---|---|---|---|---|
-| 2026-10-24 | Discover by hand, Fan-out | (filled at the end) | 0 (none in Discover) | 10% → | 15% → | 0% → | 0% → |
+| 2026-10-24 | Discover by hand, Fan-out | Opus 5.5 main session; 17 Sonnet subagents; 1 Codex call (GPT-6.1 Sol) | 0 (none in Discover) | 10% → 14% | 15% → 20% | 0% → 0% | 0% → 0% |
 
-"Before" was read by Somya after the main session had loaded the ticket's background, but before any fan-out.
+"Before" was read by Somya after the main session had loaded the ticket's background, but before any fan-out. "After" was read once Somya had picked at the gate.
+
+**Read the weekly figure, not the 5-hour one.** The 5-hour meter rose 4 points and the weekly one 5. The weekly limit is the larger, so the same work should move the 5-hour meter more; the 5-hour window most likely rolled over during the run. The whole run cost about 5% of Claude's week.
+
+**Codex didn't register.** Its one call was below the meter's whole-percent resolution.
 
 ## Subagent tokens by step
 
@@ -16,5 +20,6 @@ Same fields as the usage log in [How does parallel work run day to day?](https:/
 | Round 2: 4 SSoT seeds | 4 Sonnet | 47.7K to 48.1K | about 191K |
 | Research per Direction | 4 Sonnet | 54K to 89K | about 271K |
 | Outside check | 1 Codex call, GPT-6.1 Sol | 52.2K input (25.5K cached), 393 output | |
+| First-screen sketches | 4 Sonnet | 55K to 100K | about 304K |
 
 Main session (Opus 5.5) tokens are not broken out.
