@@ -1,0 +1,7 @@
+Read briefs.md in the current directory. It holds four design Directions (A to D) for one web page.
+
+Answer one question only: do these four Directions really differ? Picture each as a first screen. Would a reader mistake any two for each other at a glance?
+
+Do not judge quality, feasibility, risks or which is best. Do not suggest changes.
+
+For each of the six pairs (A-B, A-C, A-D, B-C, B-D, C-D), answer "distinct" or "too close", with one line naming what they share or what separates them (palette, type, layout, interaction, metaphor). Then one overall line. Under 200 words.

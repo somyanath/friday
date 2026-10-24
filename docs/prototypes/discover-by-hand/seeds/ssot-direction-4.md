@@ -1,0 +1,10 @@
+# Dropped Blueprint
+**Idea:** A single mono column that reads like a cyanotype print of a job-site drawing. A brass-free, blue-only lever sits at the top; pulling it makes the page's lines fall as heavy slugs of type, collide, and stack into the reading column. The Direction gate section has its own lever: each pull drops a different layout of the same sentence.
+**Override:** none
+**Look:** Prussian blue (#0B2A4A) ground with white ink only; tints come from white at 8 to 60 percent opacity, never a second hue. Everything in one monospace at two sizes: 15px body, one huge display size for section numbers. Hairline white rules, registration crosses and dimension ticks as the only imagery, drawn like a plan sheet. Faint cyanotype grain on the ground. Column about 62ch wide, left-aligned, ragged right, with margin notes in small caps like drawing annotations. No rounded corners, no shadows.
+**Signature moment:** Pull the lever and the headline falls letter by letter, bounces off the ruled floor, and settles. In the Direction gate section, each pull drops a new "direction" slab: the same sentence set as dense grid, giant slab, rotated, or sparse. The slabs pile up and knock into each other. Click one to pick it and the others slide off the page. It is the Direction gate, felt rather than explained. Under reduced motion, blocks simply appear stacked.
+**How it says the three messages:**
+- Taste: restraint of two colours and one typeface, with physical motion that is precise, not decorative. Falling type lands on a baseline grid, so the chaos resolves into order.
+- Builds own tools: the lever and the slabs are the tool; the page is made of the workflow. A short "kept / cut / merged / replaced" tally of the 162 pieces stacks as blocks, sorted by weight.
+- Helps teams: the last block to fall is a team-sized stack, the same pile labelled "your workflow", with the line "the same drop, pointed at your team".
+**Ending:** The stack settles into a final slab reading "Let's look at your team's workflow." Below it, the email address and LinkedIn as two underlined white lines on the floor rule; they are the only things that do not fall.
