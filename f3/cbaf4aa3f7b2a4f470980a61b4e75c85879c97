@@ -1,0 +1,73 @@
+docs/prototypes/discover-by-hand/seeds/direction-3.md
+  s_5da22d2eb988d6::t_6ba2b263273744 1-20
+docs/prototypes/discover-by-hand/seeds/slots.md
+  s_5da22d2eb988d6::t_23a611a1eddbff 1-43
+docs/prototypes/discover-by-hand/seeds/direction-1.md
+  s_5da22d2eb988d6::t_6ba2b263273744 1-20
+docs/prototypes/discover-by-hand/seeds/ssot-direction-4.md
+  s_5da22d2eb988d6::t_eaa19bf276b218 1-10
+docs/prototypes/discover-by-hand/research/pause-light.md
+  s_5da22d2eb988d6::t_e1ce884ac8522f 1-33
+docs/prototypes/discover-by-hand/seeds/picks.md
+  s_5da22d2eb988d6::t_23a611a1eddbff 1-29
+docs/prototypes/discover-by-hand/surface.md
+  s_5da22d2eb988d6::t_719dbd1d52071f 1-47
+docs/prototypes/discover-by-hand/seeds/direction-2.md
+  s_5da22d2eb988d6::t_6ba2b263273744 1-20
+docs/prototypes/discover-by-hand/research/blueprint-turnstile.md
+  s_5da22d2eb988d6::t_e1ce884ac8522f 1-28
+docs/prototypes/discover-by-hand/research/proof-sheet.md
+  s_5da22d2eb988d6::t_e1ce884ac8522f 1-36
+docs/prototypes/discover-by-hand/research/two-staves.md
+  s_5da22d2eb988d6::t_e1ce884ac8522f 1-35
+docs/prototypes/discover-by-hand/seeds/ssot-direction-3.md
+  s_5da22d2eb988d6::t_eaa19bf276b218 1-16
+docs/prototypes/discover-by-hand/seeds/seed-1.txt
+  s_5da22d2eb988d6::t_6ba2b263273744 1
+docs/prototypes/discover-by-hand/seeds/direction-4.md
+  s_5da22d2eb988d6::t_6ba2b263273744 1-20
+docs/prototypes/discover-by-hand/seeds/seed-3.txt
+  s_5da22d2eb988d6::t_6ba2b263273744 1
+docs/prototypes/discover-by-hand/briefs.md
+  s_5da22d2eb988d6::t_68516caba67674 1-104
+docs/prototypes/discover-by-hand/seeds/pick.py
+  s_5da22d2eb988d6::t_23a611a1eddbff 1-20
+docs/prototypes/discover-by-hand/seeds/ssot-direction-1.md
+  s_5da22d2eb988d6::t_eaa19bf276b218 1-10
+docs/prototypes/discover-by-hand/idea-list.md
+  s_5da22d2eb988d6::t_a342d697a40844 1-57
+docs/prototypes/discover-by-hand/seeds/ssot-direction-2.md
+  s_5da22d2eb988d6::t_eaa19bf276b218 1-19
+docs/prototypes/discover-by-hand/seeds/seed-2.txt
+  s_5da22d2eb988d6::t_6ba2b263273744 1
+docs/prototypes/discover-by-hand/seeds/seed-4.txt
+  s_5da22d2eb988d6::t_6ba2b263273744 1
+docs/prototypes/discover-by-hand/README.md
+  s_5da22d2eb988d6::t_810f8ac5dd5923 1-16
+docs/prototypes/discover-by-hand/gate-notes.md
+  s_5da22d2eb988d6::t_eac51c5ef67586 1-7
+docs/prototypes/discover-by-hand/outside-check-prompt.txt
+  s_5da22d2eb988d6::t_64a0f10a8115e4 1-7
+docs/prototypes/discover-by-hand/outside-check.md
+  s_5da22d2eb988d6::t_accbd6928b1d46 1-12
+docs/prototypes/discover-by-hand/pool-notes.md
+  s_5da22d2eb988d6::t_719ebbff6a53eb 1-49
+docs/prototypes/discover-by-hand/usage.md
+  s_5da22d2eb988d6::t_2ae2356bedf3fe 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f3cbaf4aa3f7b2a4f470980a61b4e75c85879c97",
+  "prompts": {},
+  "sessions": {
+    "s_5da22d2eb988d6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "add9469c-afb0-4cb7-ab66-1bf613611630",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
