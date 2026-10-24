@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Friday</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:oklch(96% .02 90);
+  --ink:oklch(24% .04 195);
+  --mute:oklch(24% .04 195 / .62);
+  --pen:oklch(58% .19 32);
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font-family:Newsreader,Georgia,serif;font-size:1.125rem;line-height:1.5}
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:6vh 6vw 6vh 9vw;border-bottom:1px solid var(--mute)}
+.row{display:grid;grid-template-columns:36rem minmax(0,1fr);column-gap:7vw;align-items:start}
+.row+.row{margin-top:2.2rem}
+.col{border-left:1px solid var(--ink);padding-left:1.5rem}
+.note{font-style:italic;font-size:.95rem;color:var(--ink);padding-top:.5rem;display:flex;gap:.7rem;align-items:flex-start;max-width:16rem}
+.note svg{flex:none;width:2.2rem;height:1.6rem;overflow:visible}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:.82rem;letter-spacing:.02em}
+.mark{fill:none;stroke:var(--pen);stroke-linecap:round;stroke-linejoin:round}
+.brand{display:flex;gap:.9rem;align-items:center}
+.dots{display:inline-flex;gap:.3rem}
+.dots i{width:.38rem;height:.38rem;border-radius:50%;background:var(--ink);display:block}
+h1{font-weight:400;font-size:clamp(3rem,6.2vw,5.6rem);line-height:.98;letter-spacing:-.025em;font-variation-settings:"opsz" 72}
+h1 em{font-style:italic}
+.s,.c,.o{position:relative;display:inline-block}
+.s svg{position:absolute;left:-4%;top:0;width:108%;height:100%;overflow:visible}
+.c{width:0}
+.c svg{position:absolute;left:-.22em;top:.62em;width:.5em;height:.5em;overflow:visible}
+.c b{position:absolute;left:-.8em;top:-.34em;font:italic 400 .22em/1 Newsreader;white-space:nowrap;display:none}
+p{max-width:34rem}
+.cmd{display:inline-block;position:relative;padding:.15rem .6rem;margin:0 .1rem;font-family:"IBM Plex Mono",monospace;font-size:.95rem}
+.cmd svg{position:absolute;inset:-.5rem -.7rem;width:calc(100% + 1.4rem);height:calc(100% + 1rem);overflow:visible}
+.gates{font-family:"IBM Plex Mono",monospace;font-size:.82rem;display:flex;gap:1.1rem;flex-wrap:wrap}
+.gates span::before{content:"[ "}.gates span::after{content:" ]"}
+.stampbox{display:inline-block;position:relative;padding:.35rem .7rem;transform:rotate(-2.5deg)}
+.stampbox svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+h2{font-weight:400;font-size:clamp(2rem,3.4vw,3rem);line-height:1.05;letter-spacing:-.02em}
+.thumbs{display:block;width:100%;max-width:34rem;height:auto;overflow:visible;margin-top:2rem}
+.thumbs .pg{fill:none;stroke:var(--ink);stroke-width:1}
+.thumbs .ln{stroke:var(--mute);stroke-width:1.4}
+.thumbs .bk{fill:none;stroke:var(--mute);stroke-width:1}
+.note.big{font-size:1.5rem;line-height:1.1;max-width:18rem}
+.note.big svg{width:3.2rem;height:2.4rem}
+.q{font-size:1.4rem}
+@media (max-width:600px){
+  section{padding:7vh 1.25rem;justify-content:flex-start}
+  .row{grid-template-columns:1fr;row-gap:.5rem}
+  .row+.row{margin-top:1.6rem}
+  .col{padding-left:1rem}
+  .note{padding:0 0 0 1rem;margin-left:0;max-width:none;border-left:1px solid var(--pen)}
+  h1{font-size:2.9rem}
+  h2{font-size:1.9rem}
+  .note.big{font-size:1.25rem}
+  .cmd{font-size:.85rem}
+}
+</style>
+</head>
+<body>
+
+<section id="first">
+  <div class="row">
+    <div class="brand"><span class="mono">Friday</span><span class="dots"><i></i><i></i><i></i></span></div>
+    <div class="note mono" style="padding-top:0">
+      <span class="stampbox">uncorrected proof<svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="mark" vector-effect="non-scaling-stroke" stroke-width="1.5" d="M2 3 L98 2 L99 28 L1 29 Z"/></svg></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h1>Many agents, one <span class="s">safe<svg viewBox="0 0 100 40" preserveAspectRatio="none"><path class="mark" vector-effect="non-scaling-stroke" stroke-width="2.2" d="M0 22 C30 17 70 25 100 19"/></svg></span><span class="c"><svg viewBox="0 0 10 10"><path class="mark" stroke-width="1.4" d="M1 9 L5 2 L9.5 8.5"/></svg></span> page.</h1>
+    </div>
+    <div class="note" style="padding-top:2.2rem">
+      <svg viewBox="0 0 40 28"><path class="mark" stroke-width="1.8" d="M4 14 C4 3 22 2 21 11 C20 18 8 20 10 24 C12 27 30 24 36 12"/></svg>
+      <span>dele / different</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p>Friday is a set of skills, playbooks and rules that turns Claude Code into a full workflow for building UI-heavy products with coding agents. It installs into each project, and the project's own rules always win.</p>
+    </div>
+    <div></div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p>One command starts anything: <span class="cmd">/friday &lt;task&gt;<svg viewBox="0 0 100 40" preserveAspectRatio="none"><path class="mark" vector-effect="non-scaling-stroke" stroke-width="1.5" d="M12 4 C40 -2 88 2 97 14 C103 30 70 40 30 38 C0 36 -4 18 8 8 C14 3 24 2 34 2"/></svg></span> reads the task, shows its route in one line, and restates the goal before any code is written.</p>
+    </div>
+    <div class="note">
+      <svg viewBox="0 0 40 28"><circle class="mark" stroke-width="1.6" cx="20" cy="14" r="9" /></svg>
+      <span>one command</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col"><div class="gates"><span>Direction</span><span>Variant</span><span>Ship</span></div></div>
+    <div class="note"><span>three gates / taste</span></div>
+  </div>
+</section>
+
+<section id="moment">
+  <div class="row">
+    <div class="col">
+      <h2>Variant gate</h2>
+      <p style="margin-top:.8rem">Each picked idea is built for real by its own agent, in parallel. Compared running, side by side, without knowing which model built which.</p>
+    </div>
+    <div></div>
+  </div>
+
+  <div class="row">
+    <div class="col" style="border-left-color:transparent;padding-left:0;margin-left:-1px">
+      <svg class="thumbs" viewBox="0 0 480 190" aria-hidden="true">
+        <g transform="translate(14,22)">
+          <rect class="pg" width="96" height="136"/>
+          <rect class="bk" x="10" y="10" width="76" height="40"/>
+          <path class="ln" d="M10 64H86M10 74H70M10 84H80M10 94H58"/>
+          <path class="mark" stroke-width="1.8" d="M-6 6 C30 50 70 100 104 146"/>
+        </g>
+        <g transform="translate(134,22)">
+          <rect class="pg" width="96" height="136"/>
+          <path class="ln" d="M10 14H50M10 30H86M10 40H76M10 50H84M10 60H40"/>
+          <rect class="bk" x="10" y="78" width="34" height="46"/>
+          <rect class="bk" x="52" y="78" width="34" height="46"/>
+          <path class="mark" stroke-width="2.2" d="M14 -14 C84 -26 126 34 120 90 C114 150 44 170 -6 134 C-38 102 -30 22 28 -12 C46 -22 70 -22 90 -10"/>
+        </g>
+        <g transform="translate(254,22)">
+          <rect class="pg" width="96" height="136"/>
+          <path class="ln" d="M10 16H86M10 26H50"/>
+          <rect class="bk" x="10" y="42" width="76" height="52"/>
+          <path class="ln" d="M10 108H80M10 118H66"/>
+          <path class="mark" stroke-width="1.7" d="M-5 12 C32 58 74 96 102 150"/>
+        </g>
+        <g transform="translate(374,22)">
+          <rect class="pg" width="96" height="136"/>
+          <path class="ln" d="M10 14H30M44 14H62M74 14H86M10 52H86M10 62H72M10 72H80M10 82H44"/>
+          <rect class="bk" x="10" y="98" width="76" height="26"/>
+          <path class="mark" stroke-width="2" d="M-3 4 C34 46 72 92 100 144"/>
+        </g>
+      </svg>
+    </div>
+    <div class="note big" style="padding-top:5.5rem">
+      <svg viewBox="0 0 40 28"><path class="mark" stroke-width="1.6" d="M6 14 C6 4 20 3 31 7 C38 11 36 22 22 24 C10 26 3 20 6 12"/></svg>
+      <span>picked blind</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col" style="border-left-color:transparent"></div>
+    <div class="note" style="padding-top:0">
+      <svg viewBox="0 0 40 28"><path class="mark" stroke-width="1.8" d="M4 14 C4 3 22 2 21 11 C20 18 8 20 10 24 C12 27 30 24 36 12"/></svg>
+      <span>dele &times; 3</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

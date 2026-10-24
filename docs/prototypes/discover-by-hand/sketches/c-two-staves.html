@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Friday</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Music&family=Playfair+Display:ital,wght@1,700;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4EFE4;--pink:#FF3E8A;--teal:#00A99D;--pencil:#6a6866}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper)}
+body{font-family:'Source Serif 4',Georgia,serif;overflow-x:hidden}
+section{position:relative;height:100vh;min-height:560px;overflow:hidden;isolation:isolate;background:var(--paper)}
+#first{--t1:43vh;--t2:60vh}
+#moment{--t1:27vh;--t2:62vh}
+.paper{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:multiply;opacity:.28}
+.layer{position:absolute;inset:0;mix-blend-mode:multiply}
+.layer.ink{filter:url(#riso)}
+.pink{color:var(--pink)}
+.teal{color:var(--teal);transform:translate(2px,1px)}
+.pencil{color:var(--pencil);filter:url(#pencil);transform:translate(-3px,5px) rotate(-.25deg);opacity:1}
+.st{position:absolute;left:0;width:100%;height:90px;overflow:visible}
+.u{top:var(--t1)}.l{top:var(--t2)}
+.st line.s{stroke:currentColor;stroke-width:1.1}
+.st line.b{stroke:currentColor;stroke-width:1.5}
+.st line.bk{stroke:currentColor;stroke-width:4.5}
+.st text.n{font:italic 12px 'Playfair Display',serif;fill:currentColor}
+.st text.clef{font-family:'Noto Music',serif;fill:currentColor}
+.st .pn{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.sys{position:absolute;width:1.6px;background:currentColor;top:calc(var(--t1) + 16px);height:calc(var(--t2) - var(--t1) + 48px)}
+.t{position:absolute}
+.rm{position:absolute;width:38px;height:38px;border:1.6px solid currentColor;border-radius:50%;font:italic 700 22px/34px 'Playfair Display',serif;text-align:center}
+.disp{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;line-height:.9;letter-spacing:-.02em}
+.tempo{font-family:'Playfair Display',serif;font-style:italic;font-weight:700}
+.body{font-size:17px;line-height:1.4;font-weight:400}
+.lede{font-size:22px;line-height:1.38;font-weight:500}
+
+/* first */
+#first .rm{left:5vw;top:4vh}
+#first h1{left:4vw;top:9vh;font-size:min(27vh,19vw)}
+#first .lede{left:60vw;top:11vh;width:33vw}
+#first .tempo{left:15vw;top:calc(var(--t1) - 9vh);font-size:34px}
+#first .a1{left:40vw;top:calc(var(--t1) - 6vh);width:46vw;font-style:italic}
+#first .a2{left:14vw;top:calc(var(--t2) + 92px);width:40vw;font-style:italic}
+#first .cmd{left:57vw;top:80vh;width:34vw}
+#first .cmd .tempo{position:static;font-size:30px;line-height:1.1;display:block;margin-bottom:8px}
+#first .cmd .body{font-size:15.5px}
+
+/* moment */
+#moment .rm{left:5vw;top:5vh}
+#moment h2{left:5vw;top:11vh;width:60vw;font-size:min(8.2vh,6.4vw)}
+#moment .c1{left:20vw;top:calc(var(--t1) + 104px);width:36ch;font-style:italic;color:var(--pink)}
+#moment .tempo{left:52vw;top:calc(var(--t2) + 96px);font-size:38px}
+#moment .g1{left:52vw;top:calc(var(--t2) + 150px);width:38ch}
+
+@media (max-width:600px){
+  #first{--t1:41vh;--t2:58vh}
+  #moment{--t1:31vh;--t2:60vh}
+  .x{display:none}
+  .lede{font-size:17px}
+  .body{font-size:14.5px}
+  #first .rm{left:6vw;top:3vh}
+  #first h1{left:5vw;top:7vh;font-size:21vw}
+  #first .lede{left:6vw;top:23vh;width:88vw}
+  #first .tempo{left:12vw;top:calc(var(--t1) - 6.4vh);font-size:24px}
+  #first .a1{left:36vw;top:calc(var(--t1) - 5.4vh);width:58vw;font-size:12.5px;line-height:1.25}
+  #first .a2{left:10vw;top:calc(var(--t2) + 86px);width:80vw}
+  #first .cmd{left:7vw;top:80vh;width:86vw}
+  #first .cmd .tempo{font-size:23px}
+  #first .cmd .body{font-size:13.5px;line-height:1.3}
+  #moment .rm{left:6vw;top:3vh}
+  #moment h2{left:6vw;top:9vh;width:88vw;font-size:9vw;line-height:.95}
+  #moment .c1{left:8vw;top:calc(var(--t1) + 92px);width:84vw}
+  #moment .tempo{left:8vw;top:calc(var(--t2) + 88px);font-size:28px}
+  #moment .g1{left:8vw;top:calc(var(--t2) + 128px);width:84vw}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <filter id="riso" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n1"/>
+    <feColorMatrix in="n1" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  5.5 0 0 0 -1.25" result="holes"/>
+    <feTurbulence type="fractalNoise" baseFrequency=".011" numOctaves="3" seed="9" result="n2"/>
+    <feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.9 0 0 0 .25" result="blot"/>
+    <feComposite in="SourceGraphic" in2="holes" operator="in" result="a"/>
+    <feComposite in="a" in2="blot" operator="in"/>
+  </filter>
+  <filter id="pencil" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="2" seed="2" result="w"/>
+    <feDisplacementMap in="SourceGraphic" in2="w" scale="3" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="1" seed="7" result="g"/>
+    <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  4 0 0 0 -.9" result="gm"/>
+    <feComposite in="d" in2="gm" operator="in"/>
+  </filter>
+  <filter id="paperf" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="11"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 .42  0 0 0 0 .33  0 0 0 0 .22  4.5 0 0 0 -2.4"/>
+  </filter>
+  <mask id="wm"><ellipse rx="9" ry="6" fill="#fff"/><ellipse rx="3" ry="5" fill="#000" transform="rotate(38)"/></mask>
+  <g id="hd"><ellipse rx="7.2" ry="5.2" transform="rotate(-22)" fill="currentColor"/></g>
+  <g id="nu"><use href="#hd"/><line x1="6.4" y1="-1.5" x2="6.4" y2="-38" stroke="currentColor" stroke-width="1.5"/></g>
+  <g id="nd"><use href="#hd"/><line x1="-6.4" y1="1.5" x2="-6.4" y2="38" stroke="currentColor" stroke-width="1.5"/></g>
+  <g id="wh"><ellipse rx="9" ry="6" mask="url(#wm)" fill="currentColor"/></g>
+  <g id="fer"><path d="M-21 0C-21 -27 21 -27 21 0C16 -17 -16 -17 -21 0Z" fill="currentColor"/><circle cx="0" cy="-4" r="2.8" fill="currentColor"/></g>
+</defs>
+</svg>
+
+<!-- ===================== FIRST SCREEN ===================== -->
+<section id="first">
+  <svg class="paper"><rect width="100%" height="100%" filter="url(#paperf)"/></svg>
+
+  <div class="layer ink pink">
+    <span class="rm">A</span>
+    <h1 class="t disp">Friday</h1>
+    <p class="t lede">A set of skills, playbooks and rules that turns Claude Code into a full workflow for building UI-heavy products with coding agents.</p>
+    <p class="t tempo">Con gusto</p>
+    <p class="t body a1">Claude orchestrates. Two of the four Variants are built by Claude,</p>
+    <div class="sys" style="left:1.6vw"></div>
+
+    <svg class="st u">
+      <line class="s" x1="1.6%" x2="100%" y1="16" y2="16"/><line class="s" x1="1.6%" x2="100%" y1="28" y2="28"/><line class="s" x1="1.6%" x2="100%" y1="40" y2="40"/><line class="s" x1="1.6%" x2="100%" y1="52" y2="52"/><line class="s" x1="1.6%" x2="100%" y1="64" y2="64"/>
+      <text class="clef" x="2.4%" y="55" font-size="58">&#x1D11E;</text>
+      <line class="b" x1="29%" x2="29%" y1="16" y2="64"/><line class="b" x1="53%" x2="53%" y1="16" y2="64"/><line class="b" x1="76%" x2="76%" y1="16" y2="64"/>
+      <text class="n" x="29.4%" y="9">2</text><text class="n" x="53.4%" y="9">3</text><text class="n" x="76.4%" y="9">4</text>
+      <use href="#nu" x="13%" y="52"/>
+      <svg x="17%" overflow="visible"><use href="#hd" x="0" y="46"/><use href="#hd" x="28" y="40"/><line x1="6.4" y1="44" x2="6.4" y2="8" stroke="currentColor" stroke-width="1.5"/><line x1="34.4" y1="38" x2="34.4" y2="2" stroke="currentColor" stroke-width="1.5"/><polygon points="5.6,8 35.2,2 35.2,7 5.6,13" fill="currentColor"/></svg>
+      <use class="x" href="#nd" x="25%" y="30"/>
+      <use href="#nu" x="32%" y="58"/>
+      <use href="#nd" x="36%" y="28"/>
+      <rect x="41%" y="34" width="14" height="6" fill="currentColor"/>
+      <use href="#wh" x="45.5%" y="46"/>
+      <use class="x" href="#nu" x="49.5%" y="52"/>
+      <use href="#nu" x="58%" y="46"/>
+      <use href="#nd" x="63%" y="28"/>
+      <use class="x" href="#nu" x="68%" y="52"/>
+      <use href="#nu" x="80%" y="40"/>
+      <use class="x" href="#nu" x="84%" y="52"/>
+      <use href="#nd" x="90%" y="22"/>
+      <use href="#nu" x="96%" y="58"/>
+    </svg>
+  </div>
+
+  <div class="layer ink teal">
+    <p class="t lede">A set of skills, playbooks and rules that turns Claude Code into a full workflow for building UI-heavy products with coding agents.</p>
+    <p class="t body a2">two by GPT through Codex, and each is critiqued by the other family.</p>
+    <div class="t cmd"><span class="tempo">One command starts anything.</span><p class="body"><i>/friday &lt;task&gt;</i> reads the task, decides what kind of work it is, shows that route in one line, and restates the goal in its own words before any code is written.</p></div>
+    <div class="sys" style="left:1.6vw"></div>
+
+    <svg class="st l">
+      <line class="s" x1="1.6%" x2="100%" y1="16" y2="16"/><line class="s" x1="1.6%" x2="100%" y1="28" y2="28"/><line class="s" x1="1.6%" x2="100%" y1="40" y2="40"/><line class="s" x1="1.6%" x2="100%" y1="52" y2="52"/><line class="s" x1="1.6%" x2="100%" y1="64" y2="64"/>
+      <text class="clef" x="2.4%" y="48" font-size="52">&#x1D122;</text>
+      <line class="b" x1="29%" x2="29%" y1="16" y2="64"/><line class="b" x1="53%" x2="53%" y1="16" y2="64"/><line class="b" x1="76%" x2="76%" y1="16" y2="64"/>
+      <use href="#nd" x="14%" y="34"/>
+      <use href="#nu" x="19%" y="58"/>
+      <use class="x" href="#nu" x="23.5%" y="46"/>
+      <use href="#nd" x="34%" y="22"/>
+      <use class="x" href="#nd" x="39%" y="34"/>
+      <use href="#wh" x="45%" y="46"/>
+      <use href="#nu" x="49%" y="58"/>
+      <use href="#nd" x="58%" y="28"/>
+      <use class="x" href="#nu" x="62%" y="52"/>
+      <use href="#wh" x="66.5%" y="40"/>
+      <use class="x" href="#nu" x="71%" y="58"/>
+      <use href="#nd" x="80%" y="34"/>
+      <use class="x" href="#nu" x="86%" y="52"/>
+      <use href="#nd" x="91%" y="28"/>
+      <use href="#nu" x="95.5%" y="46"/>
+    </svg>
+  </div>
+
+  <div class="layer pencil">
+    <svg class="st u">
+      <svg x="36%" overflow="visible"><path class="pn" d="M-14 25C-10 12 9 12 15 24C18 37 1 43 -11 36C-18 32 -16 21 -8 15"/></svg>
+      <svg x="53%" overflow="visible"><path class="pn" d="M3 6c4 1 5-3 4-8"/></svg>
+      <svg x="86%" overflow="visible"><path class="pn" d="M-10 14L26 62M-12 62C0 40 14 24 28 12"/></svg>
+    </svg>
+    <svg class="st l">
+      <svg x="57%" overflow="visible"><path class="pn" d="M-14 -34a9 9 0 1 0 .2 0M12 -34a9 9 0 1 0 .2 0M-5 -36c3-3 6-3 9 0M-23 -35l-5-3M21 -35l5-3"/></svg>
+    </svg>
+  </div>
+</section>
+
+<!-- ===================== SIGNATURE MOMENT ===================== -->
+<section id="moment">
+  <svg class="paper"><rect width="100%" height="100%" filter="url(#paperf)"/></svg>
+
+  <div class="layer ink pink">
+    <span class="rm">B</span>
+    <h2 class="t disp">Two model families check each other.</h2>
+    <p class="t body c1">A critic sees only screenshots, in a fresh context, and sends the work back until it passes.</p>
+    <div class="sys" style="left:1.6vw"></div>
+
+    <svg class="st u">
+      <line class="s" x1="1.6%" x2="100%" y1="16" y2="16"/><line class="s" x1="1.6%" x2="100%" y1="28" y2="28"/><line class="s" x1="1.6%" x2="100%" y1="40" y2="40"/><line class="s" x1="1.6%" x2="100%" y1="52" y2="52"/><line class="s" x1="1.6%" x2="100%" y1="64" y2="64"/>
+      <text class="clef" x="2.4%" y="55" font-size="58">&#x1D11E;</text>
+      <line class="b" x1="31%" x2="31%" y1="16" y2="64"/><line class="b" x1="54%" x2="54%" y1="16" y2="64"/><line class="b" x1="78%" x2="78%" y1="16" y2="64"/>
+      <text class="n" x="31.4%" y="9">5</text><text class="n" x="54.4%" y="9">6</text><text class="n" x="78.4%" y="9">7</text>
+      <use href="#nu" x="12%" y="52"/><use class="x" href="#nu" x="16%" y="46"/><use href="#nd" x="21%" y="28"/><use href="#nu" x="27%" y="58"/>
+      <use class="x" href="#nu" x="34%" y="52"/>
+      <use href="#nu" x="38%" y="46"/>
+      <use href="#nd" x="47%" y="30"/>
+      <use href="#nu" x="58%" y="52"/><use class="x" href="#nd" x="63%" y="34"/><use href="#wh" x="68%" y="40"/><use class="x" href="#nu" x="73%" y="58"/>
+      <use href="#nd" x="82%" y="28"/><use href="#nu" x="87%" y="46"/><use class="x" href="#nd" x="91.5%" y="30"/>
+      <line class="b" x1="96%" x2="96%" y1="16" y2="64"/><line class="b" x1="97%" x2="97%" y1="16" y2="64"/>
+    </svg>
+
+    <!-- Variant gate: pink notes of the four -->
+    <svg class="st l">
+      <use href="#wh" x="72%" y="22"/>
+      <use href="#wh" x="72%" y="61"/>
+    </svg>
+  </div>
+
+  <div class="layer ink teal">
+    <p class="t tempo">Variant gate</p>
+    <p class="t body g1">Each picked idea is built for real by its own agent, in parallel, and Somya compares them running, side by side, without knowing which model built which.</p>
+    <div class="sys" style="left:1.6vw"></div>
+
+    <!-- the replacing note, half drawn, on the pink stave -->
+    <svg class="st u">
+      <svg x="38%" overflow="visible"><use href="#hd" x="28" y="34"/><line x1="34.4" y1="32" x2="34.4" y2="14" stroke="currentColor" stroke-width="1.5"/></svg>
+    </svg>
+
+    <svg class="st l">
+      <line class="s" x1="1.6%" x2="100%" y1="16" y2="16"/><line class="s" x1="1.6%" x2="100%" y1="28" y2="28"/><line class="s" x1="1.6%" x2="100%" y1="40" y2="40"/><line class="s" x1="1.6%" x2="100%" y1="52" y2="52"/><line class="s" x1="1.6%" x2="100%" y1="64" y2="64"/>
+      <text class="clef" x="2.4%" y="48" font-size="52">&#x1D122;</text>
+      <line class="b" x1="31%" x2="31%" y1="16" y2="64"/><line class="b" x1="60%" x2="60%" y1="16" y2="64"/><line class="b" x1="84%" x2="84%" y1="16" y2="64"/>
+      <use href="#nd" x="13%" y="34"/><use href="#nu" x="18%" y="58"/><use class="x" href="#nu" x="23%" y="52"/><use href="#nd" x="27.5%" y="28"/>
+      <use href="#nu" x="36%" y="46"/><use href="#wh" x="42%" y="40"/><use class="x" href="#nd" x="47%" y="34"/><use href="#nu" x="52%" y="58"/>
+      <use href="#nd" x="64%" y="28"/>
+      <use href="#wh" x="72%" y="35"/>
+      <use href="#wh" x="72%" y="48"/>
+      <use href="#fer" x="72%" y="2"/>
+      <use href="#nu" x="88%" y="52"/>
+      <line class="b" x1="96%" x2="96%" y1="16" y2="64"/><line class="b" x1="97%" x2="97%" y1="16" y2="64"/>
+    </svg>
+  </div>
+
+  <div class="layer pencil">
+    <svg class="st u">
+      <svg x="38%" overflow="visible">
+        <path class="pn" d="M-19 62C-13 52 -9 45 -3 35S6 20 10 13S15 5 20 -3"/>
+        <path class="pn" d="M-14 66C-8 60 -4 55 0 49"/>
+        <path class="pn" d="M20 -4l6-9l6 9"/>
+      </svg>
+    </svg>
+  </div>
+</section>
+
+</body>
+</html>

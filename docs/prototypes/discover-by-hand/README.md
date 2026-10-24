@@ -14,3 +14,7 @@ Read in this order:
 Raw material: `seeds/` (strings, round-1 Directions, slot options, the picking script and its picks, round-2 Directions), `idea-list.md`, `research/`.
 
 The first copy of these files lived in a session scratchpad that was wiped mid-session before anything was committed. Every file was restored verbatim from the session transcript; `seeds/pick.py` reproduced the original picks exactly.
+
+## Round 2 of the gate: sketches
+
+Somya couldn't pick from text, so each Direction got a rough first-screen sketch: `sketches/a-proof-sheet.html` to `d-pause-light.html`, built by one Sonnet agent each from the Direction's brief section, research file and original Direction. Each holds the first screen and the signature moment frozen as a still, with no interaction. `sketches/board.html` flips between them at desktop and phone width; serve the folder (`python3 -m http.server 4210 --directory sketches`) so the moment frames can scroll. `sketches/shots/` holds the render check the main session ran before Somya saw them.

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direction board</title>
+<!-- PROTOTYPE, throwaway: flips between the four Direction sketches for the Direction gate. -->
+<style>
+  :root {
+    --bg: #1f1f1f;
+    --panel: #2a2a2a;
+    --line: #3a3a3a;
+    --text: #ececec;
+    --muted: #9a9a9a;
+    --accent: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  header {
+    position: sticky; top: 0; z-index: 2;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px;
+    padding: 12px 16px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  nav { display: flex; gap: 6px; flex-wrap: wrap; }
+  nav button {
+    font: inherit; color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--line);
+    padding: 6px 12px; cursor: pointer;
+  }
+  nav button[aria-selected="true"] { color: var(--bg); background: var(--accent); border-color: var(--accent); }
+  nav button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  #line { color: var(--muted); margin: 0; flex: 1 1 320px; }
+  .hint { color: var(--muted); font-size: 12px; }
+  main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 24px;
+    padding: 20px 16px 40px;
+  }
+  .col { display: grid; gap: 20px; align-content: start; }
+  figure { margin: 0; }
+  figcaption { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+  .frame {
+    position: relative; overflow: hidden;
+    background: var(--panel);
+    border: 1px solid var(--line);
+  }
+  .frame iframe {
+    position: absolute; top: 0; left: 0;
+    border: 0; transform-origin: 0 0;
+    background: #fff;
+  }
+  .desktop { aspect-ratio: 1440 / 900; }
+  .desktop iframe { width: 1440px; height: 900px; }
+  .phone { aspect-ratio: 390 / 844; }
+  .phone iframe { width: 390px; height: 844px; }
+  @media (max-width: 860px) {
+    main { grid-template-columns: minmax(0, 1fr); }
+    .col.phones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav role="tablist" aria-label="Directions"></nav>
+  <p id="line"></p>
+  <span class="hint">Keys 1–4 flip. Full briefs in briefs.md.</span>
+</header>
+<main>
+  <div class="col">
+    <figure><figcaption>First screen, desktop 1440 × 900</figcaption><div class="frame desktop"><iframe id="d-first" title="First screen, desktop"></iframe></div></figure>
+    <figure><figcaption>Signature moment, frozen, desktop 1440 × 900</figcaption><div class="frame desktop"><iframe id="d-moment" title="Signature moment, desktop"></iframe></div></figure>
+  </div>
+  <div class="col phones">
+    <figure><figcaption>First screen, phone 390 × 844</figcaption><div class="frame phone"><iframe id="p-first" title="First screen, phone"></iframe></div></figure>
+    <figure><figcaption>Signature moment, phone</figcaption><div class="frame phone"><iframe id="p-moment" title="Signature moment, phone"></iframe></div></figure>
+  </div>
+</main>
+<script>
+  const directions = [
+    { key: "A", name: "Proof Sheet", file: "a-proof-sheet.html",
+      line: "The page is an editor's proof of itself: clean text, and every decision marked in the margin." },
+    { key: "B", name: "Blueprint Turnstile", file: "b-blueprint-turnstile.html",
+      line: "A cyanotype drawing sheet you walk sideways, and you can't pass a gate until you approve it." },
+    { key: "C", name: "Two Staves", file: "c-two-staves.html",
+      line: "Friday as a score: Claude and GPT are two staves, and the critic's pencil corrects both." },
+    { key: "D", name: "Pause Light", file: "d-pause-light.html",
+      line: "A calm control-room wall where one red lamp lights only where the human decides." },
+  ];
+  const nav = document.querySelector("nav");
+  const frames = {
+    dFirst: document.getElementById("d-first"),
+    dMoment: document.getElementById("d-moment"),
+    pFirst: document.getElementById("p-first"),
+    pMoment: document.getElementById("p-moment"),
+  };
+  directions.forEach((d, i) => {
+    const b = document.createElement("button");
+    b.role = "tab";
+    b.textContent = `${d.key}. ${d.name}`;
+    b.addEventListener("click", () => show(i));
+    nav.append(b);
+  });
+  function show(i) {
+    const d = directions[i];
+    [...nav.children].forEach((b, j) => b.setAttribute("aria-selected", String(i === j)));
+    document.getElementById("line").textContent = d.line;
+    frames.dFirst.src = d.file;
+    frames.dMoment.src = d.file;
+    frames.pFirst.src = d.file;
+    frames.pMoment.src = d.file;
+    try { localStorage.setItem("board-tab", String(i)); } catch (e) {}
+  }
+  function fit() {
+    document.querySelectorAll(".frame").forEach(f => {
+      const iframe = f.querySelector("iframe");
+      iframe.style.transform = `scale(${f.clientWidth / iframe.offsetWidth})`;
+    });
+  }
+  // Scroll the moment frames inside themselves; a #moment hash would also scroll this page.
+  [frames.dMoment, frames.pMoment].forEach(f => f.addEventListener("load", () => {
+    try {
+      const m = f.contentDocument.getElementById("moment");
+      if (m) f.contentWindow.scrollTo(0, m.offsetTop);
+    } catch (e) {}
+  }));
+  new ResizeObserver(fit).observe(document.body);
+  document.addEventListener("keydown", e => {
+    const n = Number(e.key);
+    if (n >= 1 && n <= directions.length) show(n - 1);
+  });
+  let start = 0;
+  try { start = Number(localStorage.getItem("board-tab")) || 0; } catch (e) {}
+  const asked = new URLSearchParams(location.search).get("d");
+  if (asked !== null) start = Number(asked);
+  show(start);
+  fit();
+</script>
+</body>
+</html>

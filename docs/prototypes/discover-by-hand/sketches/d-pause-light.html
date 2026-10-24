@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Friday</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Noto+Sans:wght@400;600&family=Fraunces:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0a;--bone:#ece4d2;--dim:#8d877a;--red:#ff2a1a;--yel:#ffcc00;--blu:#2f7bff;--rule:#2a2925}
+*{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+html,body{background:var(--bg);color:var(--bone);font-family:"Barlow Condensed",sans-serif;font-variant-numeric:tabular-nums}
+section{position:relative;height:100vh;min-height:560px;overflow:hidden}
+.bar{position:absolute;top:0;left:0;right:0;height:52px;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:14px;padding:0 4vw;background:var(--bg);z-index:20;font-weight:600;letter-spacing:.14em;font-size:15px;text-transform:uppercase}
+.lamp{width:30px;height:18px;border:2px solid var(--dim);background:transparent}
+.lamp.on{background:var(--red);border-color:var(--red);box-shadow:0 0 22px 4px rgba(255,42,26,.55)}
+.bar .st{color:var(--dim)}
+.bar .on-t{color:var(--red)}
+.bar .r{margin-left:auto;color:var(--dim)}
+/* first */
+.wrap{position:absolute;inset:52px 0 0 0;padding:0 4vw;display:grid;grid-template-columns:150px 1fr;column-gap:3vw;align-content:center}
+.gut{display:flex;flex-direction:column;gap:10px;padding-top:1.6vw}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--dim);padding:5px 9px;font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;width:max-content}
+.chip i{width:10px;height:10px;display:block;border:2px solid currentColor}
+.chip.y{color:var(--yel);border-color:var(--yel)}.chip.y i{background:var(--yel)}
+.chip.b{color:var(--blu);border-color:var(--blu)}.chip.b i{background:var(--blu)}
+.chip.g{color:var(--dim)}
+.chip.r{color:var(--red);border-color:var(--red)}.chip.r i{background:var(--red)}
+h1,h2{font-weight:700;text-transform:uppercase;line-height:.88;letter-spacing:-.005em}
+h1{font-size:8.4vw;max-width:11ch}
+.tele{margin-top:2.4vw;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:0;font-size:clamp(15px,1.35vw,20px);letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.tele div{padding:12px 22px 12px 0;margin-right:22px;border-right:1px solid var(--rule);display:flex;gap:10px;align-items:center}
+.tele div:last-child{border:0}
+.tele b{color:var(--dim);font-weight:500}
+.sub{margin-top:1.6vw;font-size:clamp(20px,1.9vw,28px);max-width:34ch;color:var(--bone);line-height:1.2;font-weight:500;letter-spacing:.01em}
+.cmd{font-weight:600;color:var(--yel)}
+/* moment */
+#moment{background:#000}
+.pg{position:absolute;inset:52px 0 0 0}
+.gen{background:#fff;color:#1f2430;font-family:"Noto Sans",sans-serif;clip-path:inset(0 58% 0 0);text-align:center;padding:7vh 6vw}
+.gen .nav{display:flex;justify-content:space-between;font-size:13px;color:#667;margin-bottom:8vh}
+.gen .nav b{color:#4338ca}
+.gen h3{font-size:3.6vw;font-weight:600;line-height:1.15;max-width:18ch;margin:0 auto 14px}
+.gen p{color:#5b6070;font-size:1.2vw;max-width:46ch;margin:0 auto 22px;line-height:1.5}
+.gen .btn{display:inline-block;background:#4338ca;color:#fff;border-radius:8px;padding:12px 26px;font-size:15px}
+.gen .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8vh}
+.gen .cards div{border:1px solid #e3e5ec;border-radius:12px;padding:22px;font-size:14px;text-align:left;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.gen .cards b{display:block;margin-bottom:8px;color:#4338ca}
+.sed{background:#e9dfc8;color:#1a1410;clip-path:inset(0 0 0 42%);padding:7vh 5vw 0 5vw}
+.sed .nav{display:flex;justify-content:space-between;font-family:"Barlow Condensed";font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:14px;margin-bottom:6vh;border-bottom:2px solid #1a1410;padding-bottom:10px}
+.sed h3{font-family:Fraunces,serif;font-weight:800;font-size:8vw;line-height:.9;letter-spacing:-.03em;color:#1a1410}
+.sed h3 em{font-style:normal;color:#c2410c}
+.sed p{font-family:Fraunces,serif;font-size:1.5vw;max-width:30ch;margin-top:3vh;line-height:1.3}
+.sed .blk{position:absolute;right:5vw;bottom:0;width:18vw;height:30vh;background:#1a1410}
+.wipe{position:absolute;top:52px;bottom:0;left:42%;width:0;border-left:2px solid var(--bone);z-index:10}
+.wipe::after{content:"";position:absolute;top:50%;left:-22px;width:42px;height:64px;margin-top:-32px;background:var(--bg);border:2px solid var(--bone)}
+.wipe::before{content:"";position:absolute;top:50%;left:-6px;width:10px;height:26px;margin-top:-13px;z-index:2;border-left:2px solid var(--bone);border-right:2px solid var(--bone)}
+.leg{position:absolute;bottom:22px;z-index:12;display:flex;gap:10px;flex-wrap:wrap}
+.leg.l{left:4vw;max-width:calc(42% - 6vw)}.leg.r{right:4vw;max-width:calc(58% - 6vw);justify-content:flex-end}
+.leg .chip{background:var(--bg)}
+.leg .chip.g{color:var(--bone);border-color:var(--bone)}
+@media (max-width:600px){
+ .bar{height:48px;font-size:13px;padding:0 16px;gap:10px}.bar .r{display:none}
+ .wrap{inset:48px 0 0 0;padding:0 16px;display:block;align-content:start;padding-top:7vh}
+ .gut{flex-direction:row;flex-wrap:wrap;margin-bottom:18px;padding:0}
+ h1{font-size:21vw;max-width:none}
+ .tele{display:block;margin-top:22px}.tele div{border:0;margin:0;padding:9px 0;border-bottom:1px solid var(--rule);font-size:15px}
+ .tele div:last-child{border:0}
+ .sub{font-size:20px;margin-top:20px}
+ .pg{inset:48px 0 0 0}.wipe{top:48px;left:42%}
+ .gen{padding:5vh 14px}.gen .nav{margin-bottom:5vh}.gen h3{font-size:25px}.gen p{font-size:12px}
+ .gen .cards{grid-template-columns:1fr;gap:10px;margin-top:4vh}.gen .cards div{padding:10px;font-size:11px}
+ .sed{padding:5vh 14px}.sed h3{font-size:19vw}.sed p{font-size:13px}.sed .nav{font-size:11px;margin-bottom:4vh}.sed .blk{width:30vw;height:18vh;right:14px}
+ .leg{bottom:14px}.leg.l{left:12px;max-width:calc(42% - 16px)}.leg.r{right:12px;max-width:calc(58% - 16px)}
+ .chip{font-size:12px;padding:4px 7px}
+}
+</style>
+</head>
+<body>
+
+<section id="first">
+  <div class="bar"><span class="lamp"></span><span>Pause</span><span class="st">Off &middot; nothing waiting on you</span><span class="r">Friday</span></div>
+  <div class="wrap">
+    <div class="gut">
+      <span class="chip g"><i></i>Idle</span>
+      <span class="chip y"><i></i>Agent running</span>
+      <span class="chip b"><i></i>GPT via Codex</span>
+      <span class="chip g"><i></i>Gate 3 &middot; off</span>
+    </div>
+    <div>
+      <h1>One command starts anything.</h1>
+      <div class="tele">
+        <div><b>Cmd</b><span class="cmd">/friday &lt;task&gt;</span></div>
+        <div><b>Route</b>UI &middot; New Surface</div>
+        <div><b>Gate</b>Direction &middot; waiting</div>
+        <div><b>Check</b>Claude 2 / GPT 2</div>
+      </div>
+      <p class="sub">Friday is the process on top of your agents. It decides what they build, stops for a human where taste matters, and makes them prove the rest.</p>
+    </div>
+  </div>
+</section>
+
+<section id="moment">
+  <div class="bar"><span class="lamp on"></span><span class="on-t">Pause</span><span class="st">On &middot; Variant gate &middot; your pick</span><span class="r">Friday</span></div>
+  <div class="pg gen">
+    <div class="nav"><b>Acme</b><span>Product &nbsp; Pricing &nbsp; About</span></div>
+    <h3>Build better products, faster</h3>
+    <p>Unlock the power of AI to streamline your workflow and ship with confidence.</p>
+    <span class="btn">Get started</span>
+    <div class="cards"><div><b>Fast</b>Move quickly.</div><div><b>Smart</b>Powered by AI.</div><div><b>Secure</b>Built to scale.</div></div>
+  </div>
+  <div class="pg sed">
+    <div class="nav"><span>Variant 03 of 04</span><span>Seeded</span></div>
+    <h3>Four agents.<br><em>Four</em> pages.</h3>
+    <p>Not the same page four times. You pick, side by side, blind to which model built which.</p>
+    <div class="blk"></div>
+  </div>
+  <div class="wipe"></div>
+  <div class="leg l"><span class="chip g"><i></i>Agents alone</span></div>
+  <div class="leg r"><span class="chip y"><i></i>Seeded</span><span class="chip b"><i></i>Second family</span><span class="chip r"><i></i>Gate 2 &middot; Variant</span></div>
+</section>
+
+</body>
+</html>
