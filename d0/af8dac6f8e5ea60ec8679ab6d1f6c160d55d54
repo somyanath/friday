@@ -1,0 +1,39 @@
+docs/prototypes/discover-by-hand/sketches/a-proof-sheet.html
+  s_5da22d2eb988d6::t_51023da9f167bd 129
+  s_5da22d2eb988d6::t_f63a5a7405f923 1-128,130-162
+docs/prototypes/discover-by-hand/sketches/d-pause-light.html
+  s_5da22d2eb988d6::t_0a71475d47d04f 1-123
+docs/prototypes/discover-by-hand/sketches/board.html
+  s_5da22d2eb988d6::t_520051051f3f5e 128-134
+  s_5da22d2eb988d6::t_c47f916bf1af47 1-116,118,120-127,135-141,144-148
+  s_5da22d2eb988d6::t_a104215f2f932b 117,119
+  s_5da22d2eb988d6::t_e00c7ec07a68d4 142-143
+docs/prototypes/discover-by-hand/sketches/b-blueprint-turnstile.html
+  s_5da22d2eb988d6::t_34db84e8e569e2 9,217-219
+  s_5da22d2eb988d6::t_5ee7047c9beb5d 34,200
+  s_5da22d2eb988d6::t_ad7e228850e974 17,39-41,54,64,95-98,100,103,136,149,151,154,158-161,166,195,207-208,210-211,214-216
+  s_5da22d2eb988d6::t_af9ae1a2a2da76 1-8,10-16,18-31,33,35-38,42-53,55-63,66-94,107-135,137,139,141-148,150,152-153,155-157,162,165,167-194,196-199,201-203,205-206,212-213,220-243
+  s_5da22d2eb988d6::t_0c460f8d4a277c 104-106,140,163-164
+  s_5da22d2eb988d6::t_d30776cf98d41b 32,65,99,101-102,138,204,209
+docs/prototypes/discover-by-hand/sketches/c-two-staves.html
+  s_5da22d2eb988d6::t_c818823fcffd46 16-72
+  s_5da22d2eb988d6::t_3c91943b92c8c0 1-15,73-254
+docs/prototypes/discover-by-hand/README.md
+  s_5da22d2eb988d6::t_2d3cb035a392e9 17-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d0af8dac6f8e5ea60ec8679ab6d1f6c160d55d54",
+  "prompts": {},
+  "sessions": {
+    "s_5da22d2eb988d6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "add9469c-afb0-4cb7-ab66-1bf613611630",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
