@@ -1,0 +1,28 @@
+docs/specs/entry-command.md
+  s_9e692edbb85e6e::t_2b3a8f58d2bc5f 1-192
+docs/adr/0009-playbooks-start-only-through-the-entry-command.md
+  s_9e692edbb85e6e::t_c5565e843657f1 1-15
+docs/specs/skill-rulings.md
+  s_9e692edbb85e6e::t_fb613fd524163d 5
+  s_9e692edbb85e6e::t_4a0fab291c98ed 526
+GLOSSARY.md
+  s_9e692edbb85e6e::t_95df1c7df315ed 82,86
+  s_9e692edbb85e6e::t_7d557b9485ff4d 51-53,55,68
+  s_9e692edbb85e6e::t_babdedec73ea92 54,56-67
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d4bc55649b43062854266b95540f67ce1c9a628b",
+  "prompts": {},
+  "sessions": {
+    "s_9e692edbb85e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "93d6002d-69a5-45a9-b0be-6f0596210e98",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
