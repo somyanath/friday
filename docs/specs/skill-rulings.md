@@ -2,7 +2,7 @@
 
 **Status:** decided (2026-10-23) in [Which installed skills does Friday keep, cut, merge or replace?](https://github.com/somyanath/friday/issues/10). Nothing here is built yet.
 
-A Ruling for every piece of the three upstreams Friday draws on, and a must-do list for every new skill the rulings create. The entry command ([#11](https://github.com/somyanath/friday/issues/11)) decides when each skill runs and how playbooks are wired; the design skill ([#15](https://github.com/somyanath/friday/issues/15)) decides what it does in each phase. Full specs for the new skills stay in the map's **New skills beyond the design skill** fog until they are written; long sections here move to their own spec files then.
+A Ruling for every piece of the three upstreams Friday draws on, and a must-do list for every new skill the rulings create. The entry command ([#11](https://github.com/somyanath/friday/issues/11), specified in [`entry-command.md`](entry-command.md)) decides when each skill runs and how playbooks are wired; the design skill ([#15](https://github.com/somyanath/friday/issues/15)) decides what it does in each phase. Full specs for the new skills stay in the map's **New skills beyond the design skill** fog until they are written; long sections here move to their own spec files then.
 
 ## Versions judged
 
@@ -523,7 +523,7 @@ Friday ends up with 13 `friday-` skills, 10 `matt-` copies and 15 `pstack-` copi
 
 ## What other Friday pieces receive
 
-- **Entry command** ([#11](https://github.com/somyanath/friday/issues/11)):
+- **Entry command** ([#11](https://github.com/somyanath/friday/issues/11); decided in [`entry-command.md`](entry-command.md), which also sorts every kept skill into Playbook or Reference skill, ADR-0009):
   - It replaces `ask-matt`, `poteto-mode` and `poteto-help`.
   - It carries `poteto-mode`'s reply rules:
     - a skipped step stays visible as `skip: <reason>`

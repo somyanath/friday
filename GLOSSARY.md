@@ -48,6 +48,24 @@ _Avoid_: frontend work
 A job that changes nothing a user sees, such as backend, data or tooling. It passes through no gate.
 _Avoid_: backend work
 
+### Starting work
+
+**Entry command**:
+`/friday`, the one command Somya types to start any task in a Friday project. It picks the task's Route and hands it to that Route's Playbook.
+_Avoid_: router, mode
+
+**Route**:
+The Entry command's pick for one task: its kind of work, its job (new behaviour, a bug, performance, a refactor, a question) and the Playbook that runs it, shown to Somya in one line before work starts. A Route lasts until its task ends.
+_Avoid_: lane, flow, plan
+
+**Playbook**:
+A Friday skill that runs one kind of job from start to finish, such as building a Surface or fixing a bug. Only the Entry command or Somya starts one; it never starts on its own.
+_Avoid_: workflow, pipeline, flow
+
+**Reference skill**:
+A skill that holds know-how for one step, such as writing a test or a PR body. Playbooks call it, and Claude may also start it on its own when it fits.
+_Avoid_: helper, utility skill
+
 ### Projects
 
 **Project record**:
@@ -61,11 +79,11 @@ _Avoid_: clash, override
 ### Design process
 
 **Surface**:
-A piece of UI with its own design job: a new app, a new page, a landing or marketing page, or a complete redesign of one. Every surface goes through the full design process.
+A piece of UI with its own design job, because no Design language already answers how it should look: a new app, a landing or marketing page, a new kind of page, a section given a new look, or a complete redesign. Every surface goes through the full design process.
 _Avoid_: screen, feature
 
 **Refinement**:
-Work inside an already-designed surface that keeps its design language, such as reworking one section. Skips straight to building and the Ship gate.
+UI work whose look is already answered, by a Design language or, where none is written down, by the look already shipped. Examples: reworking one section, or adding a settings page that follows the app's Design language. Skips straight to building and the Ship gate.
 _Avoid_: small change, tweak
 
 **Direction**:
