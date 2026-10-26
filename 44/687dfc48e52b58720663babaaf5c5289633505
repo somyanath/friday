@@ -1,0 +1,36 @@
+docs/adr/0010-discover-has-no-gate-a-script-picks-the-slots.md
+  s_fef5cbdc765408::t_ebda34574c3f24 1-14
+GLOSSARY.md
+  s_fef5cbdc765408::t_e9250f55275d9d 122,125-127
+  s_fef5cbdc765408::t_cdf4d7e908e52a 119
+  s_fef5cbdc765408::t_afdf6bedf733a5 101-105,107-108,110,113
+  s_fef5cbdc765408::t_4ddda430fee22a 98
+  s_fef5cbdc765408::t_1f3e20d1f630fc 106
+  s_fef5cbdc765408::t_d6189ee17038ec 128
+docs/specs/design-skill.md
+  s_fef5cbdc765408::t_b72a9eec49d94b 1-6,8-37,90-295
+  s_fef5cbdc765408::t_aa208c4e05a05f 7
+  s_fef5cbdc765408::t_c46f21f0c695cd 38-89
+docs/adr/0002-own-mit-upstreams-use-emils-skills-in-place.md
+  s_fef5cbdc765408::t_7149155a0da6d4 12
+docs/specs/skill-rulings.md
+  s_fef5cbdc765408::t_7149155a0da6d4 50,211,430
+docs/specs/variant-gate-tool.md
+  s_fef5cbdc765408::t_4a1d5bbe5e60eb 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "44687dfc48e52b58720663babaaf5c5289633505",
+  "prompts": {},
+  "sessions": {
+    "s_fef5cbdc765408": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7341bdf9-1ccc-4521-8115-27c2ef82e577",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
