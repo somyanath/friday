@@ -1,0 +1,21 @@
+docs/research/skill-evals.md
+  s_aa750176967f2c::t_5df7464179a239 1-195,197-288,310-319,324-339,341-345,347-375
+  s_aa750176967f2c::t_499e5850ac76d5 196
+  s_aa750176967f2c::t_73e701deb147f1 289-309,320-323,340,346
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "128a93b3586f10c8b09cb1cdf738ce1856db7927",
+  "prompts": {},
+  "sessions": {
+    "s_aa750176967f2c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "43d51b9c-1cba-410a-ae46-632e4536b59f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
