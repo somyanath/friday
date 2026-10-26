@@ -19,7 +19,7 @@ If the look-back names none, the static gate stays and this spec waits.
 - **Surface:** a piece of UI with its own design job, such as a new app, page or landing page.
 - **Variant:** one design for a Surface, built for real and running on its own branch, worktree and dev server. Variants are known by letter only (A, B, C, D).
 - **Round:** one sitting of the gate. Round 1 shortlists one or two Variants; round 2 picks one Finalist.
-- **Finalist:** a shortlisted Variant built with one of its two videos. Round 2 compares 2 or 4 of them.
+- **Finalist:** a shortlisted Variant built with one of its two videos, or as it stands when it has no place for one. Round 2 compares two to four of them.
 - **Combination:** a round-1 pick made of a base Variant plus named parts taken from others.
 - **Handoff:** the file the caller writes for a round, with one entry per Variant or Finalist.
 - **Gate record:** the file the tool writes back: the reviewer's picks and notes.

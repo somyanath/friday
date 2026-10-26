@@ -95,27 +95,36 @@ A direction built for real by its own agent so it can be judged running.
 _Avoid_: version, mock, option
 
 **Design language**:
-The locked visual and motion rules a surface was shipped with, written down so later work can follow them.
+The locked visual and motion rules a surface was shipped with, and for a page that pitches something its voice, written down so later work can follow them. It lives in the project beside the code, and changes only with Somya's sign-off.
 _Avoid_: style guide, theme
 
+**Seed**:
+A random string drawn for one direction, from which a script picks that direction's slots.
+_Avoid_: seed string, random string
+
+**Slot**:
+One choice a seed decides for a direction, such as its concept, palette, layout or the message its page leads with.
+_Avoid_: axis, dimension, parameter
+
 **Discover**:
-The phase that generates many directions and narrows them; it ends at the Direction gate.
+The phase that turns a surface's goals into four distinct directions. No gate follows it: every direction goes on to Define.
 
 **Define**:
-The phase that builds each chosen direction as a variant, in parallel; it ends at the Variant gate.
+The phase that builds each of Discover's four directions as a variant, in parallel, half by each model family; it ends at the Variant gate.
 
 **Deliver**:
 The phase that polishes the final pick from the Variant gate and writes down its design language; it ends at the Ship gate.
 
-**Direction gate**:
-Somya's pick of three or four directions to build.
-
 **Variant gate**:
-Somya's side-by-side comparison of the running variants, in two rounds: a shortlist of one or two after the image step (a combination counts as one), then a final pick among the finalists.
+Somya's side-by-side comparison of the running variants, in two rounds: a shortlist of one or two after the image step (a combination counts as one), then a final pick among the finalists. When no shortlisted variant has a video moment, the first round picks one and there is no second. It is Somya's first look at a surface's design.
 
 **Finalist**:
-A shortlisted variant built with one of its two videos, compared at the Variant gate's final pick.
+A shortlisted variant built with one of its two videos, or as it stands when it has no video moment, compared at the Variant gate's final pick.
 _Avoid_: option, take, cut
+
+**Video moment**:
+A place in a variant where a generated clip belongs, such as a looping animated graphic or a transition between two states. A variant may have none.
+_Avoid_: video slot, motion moment
 
 **Ship gate**:
 Somya's visual sign-off on a surface or refinement before it merges.

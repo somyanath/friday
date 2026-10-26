@@ -47,7 +47,7 @@ Friday ends up with 13 `friday-` skills, 10 `matt-` copies and 15 `pstack-` copi
 
 - **Names (ADR-0002):** `matt-` or `pstack-` when copied from one upstream, including several pieces from the same upstream merged into one; `friday-` when built from more than one upstream or written new. Emil's names never change.
 - **Provenance:** each copy records the upstream files and commit it came from.
-- **pstack copies** start from pstack's source in Claude Code names, without pstack's Claude Code adapter. They reword pstack's terms that clash with the glossary ("surface", "gate", "video", "swarm", "owner", "judge"). Any "don't stop" text names the three gates, the Always-pause list and a Rule conflict as exceptions. A non-Claude seat becomes a Codex call (ADR-0001). The principles copy over unchanged.
+- **pstack copies** start from pstack's source in Claude Code names, without pstack's Claude Code adapter. They reword pstack's terms that clash with the glossary ("surface", "gate", "video", "swarm", "owner", "judge"). Any "don't stop" text names the gates, the Always-pause list and a Rule conflict as exceptions. A non-Claude seat becomes a Codex call (ADR-0001). The principles copy over unchanged.
 - **Scripts** in owned skills return JSON, give error messages that say what to do instead, and take `--dry-run` if they delete anything. `matt-wizard`'s scripts are the exception, since Somya runs them.
 - **Shape:**
   - A skill that runs a process keeps its main steps short and moves side branches into files it points to. Matt keeps skills short on purpose, because the model copies the length of the skill.
@@ -208,7 +208,7 @@ Friday ends up with 13 `friday-` skills, 10 `matt-` copies and 15 `pstack-` copi
 | `fix-root-causes` | Non-UI work, Refinement | Merge | `friday-debugging` | Used only there |
 | `attack-the-premise` | Non-UI work, Refinement | Merge | `friday-debugging` | Used only there |
 | `exhaust-the-design-space` | Refinement | Merge | `friday-prototype` | Used only there |
-| `never-block-on-the-human` | Non-UI work | Merge | `friday-unattended-run` | Applies only to unattended runs; the three gates, the Always-pause list and a Rule conflict always stop the run |
+| `never-block-on-the-human` | Non-UI work | Merge | `friday-unattended-run` | Applies only to unattended runs; the gates, the Always-pause list and a Rule conflict always stop the run |
 | `outcome-oriented-execution` | none | Cut | | It accepts planned breakage between steps. Every Friday PR merges only on green CI and a Verdict (ADR-0004, ADR-0007), so there is no breakage between merges, and `migrate-callers-then-delete-legacy-apis` covers moving to a new shape within one PR. |
 
 ### Subagents (2)
@@ -427,7 +427,7 @@ Friday ends up with 13 `friday-` skills, 10 `matt-` copies and 15 `pstack-` copi
   - **Finish condition first,** before the first step. The smallest change per step, and the condition is never loosened to declare victory.
   - **Framing:** `figure-it-out`'s framing, with a Decision trail.
   - **Context:** protect the context window.
-  - **Don't block on Somya,** but the three gates, the Always-pause list and a Rule conflict always stop the run.
+  - **Don't block on Somya,** but the gates, the Always-pause list and a Rule conflict always stop the run.
   - **Fixed steps are a script:** choosing ready tickets, dispatching, and waiting for Verdicts. The agent judges only what needs judgement.
   - **Dropped:** the rest of `orchestrate`, which is team-scale.
 - **Calls:** `pstack-decision-trail`, `friday-implement`, `pstack-ketchup`.
