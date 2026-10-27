@@ -183,8 +183,12 @@ An agent proving its own work on the running app, with evidence, before the work
 _Avoid_: testing, self-review, QA
 
 **Verification skill**:
-A project's own skill that launches its app, drives it the way a user does, and captures evidence, with a feature map of what to check.
+A project's own skill, one per app, that launches that app, drives it the way a user does, and captures evidence, with a feature map of what to check. A project holding several apps has one for each.
 _Avoid_: control skill, test harness
+
+**Feature map**:
+The part of a Verification skill that lists an app's user-facing features: what each does, how a user reaches it, its gotchas, and the checks that prove it works.
+_Avoid_: test plan, feature list
 
 **Live check**:
 One run of the real app through the Verification skill: a scenario, the evidence it saves, and the condition that makes it pass.

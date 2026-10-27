@@ -512,8 +512,8 @@ Friday ends up with 13 `friday-` skills, 10 `matt-` copies and 15 `pstack-` copi
 | `pstack-in-your-own-words` | The entry command decides when it runs. |
 | `pstack-ketchup` | Never invents a decision or drops an item. Loses `/visualize`. |
 | `pstack-correct` | Turns a mistake seen twice into a check that fails. |
-| `pstack-create-verification-skill` | Writes into the project's `.claude/skills/` and `.agents/skills/` instead of `.cursor/skills/`, and names nothing of Friday (ADR-0006). The **Verification skill** fog decides what the generated skill holds. |
-| `pstack-maintain-verification-skill` | Opens at most one PR of proven fixes. |
+| `pstack-create-verification-skill` | Writes `.agents/skills/verify-<app>/`, symlinked from `.claude/skills/`, instead of `.cursor/skills/`, and names nothing of Friday (ADR-0006). Live checks are Playwright Test files (ADR-0011); the [Verification skill spec](verification-skill.md) says what the generated skill holds and how it's proven. |
+| `pstack-maintain-verification-skill` | Opens at most one PR of proven fixes. Haiku source readers, a Sonnet live pass on the production build, incremental by default, product gaps filed as issues, and edits limited to the skill folder and its footprint ([spec](verification-skill.md#keeping-it-current-pstack-maintain-verification-skill)). |
 | `pstack-fan-out` | Renamed from `swarm`. A race between versions gets a Codex seat. |
 | `pstack-decision-trail` | Renamed from `show-me-your-work`. Also records every disagreement between two of Emil's skills (ADR-0008). |
 | `pstack-sharpen` | Run only by Somya. |
