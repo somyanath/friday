@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact</title>
+<style>
+ body{font-family:system-ui;margin:40px}
+ h1{animation:rise 1.2s ease-out both}
+ @keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+ .tip{display:none} button:hover + .tip{display:inline}
+ @media (hover:none){.touchnote::after{content:" (touch device)"}}
+</style></head><body>
+<h1 class="touchnote">Get in touch</h1>
+<form id="f"><label>Name <input name="name" aria-label="Name"></label>
+<button type="submit">Send</button><span class="tip">hover tip</span></form>
+<p id="status" role="status"></p>
+<script>
+ fetch('/missing.json').catch(()=>{});
+ setTimeout(()=>{const b=document.querySelector('button');b.disabled=true;setTimeout(()=>b.disabled=false,400)},50);
+ document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();
+   setTimeout(()=>{document.getElementById('status').textContent='Thanks, I\'ll reply soon';console.error('demo error after send')},300);});
+</script></body></html>
