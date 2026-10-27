@@ -82,9 +82,47 @@ Research for "What does a project's Verification skill hold, and how does each L
 - `puppeteer-core` 25.16.0: Google's library, Chrome-focused, no browser download, Node 22.12 or newer.
 - `agent-browser` 0.39.4: a "browser automation CLI for AI agents".
 
+## After choosing (b)
+
+Somya chose (b) on 2026-10-27. Three follow-up tests ran on the same Mac and Chrome. The files are in [`browser-drivers/after-b/`](browser-drivers/after-b/). As run, `contact.spec.js` sat in a `scenarios/` folder.
+
+**Which errors Playwright reports, and how.** [`errors-page.html`](browser-drivers/after-b/errors-page.html) was served on 127.0.0.1:4290, with a second server on port 4293 playing a third party. [`error-sources.mjs`](browser-drivers/after-b/error-sources.mjs) logged every event.
+
+| Source | `requestfailed` | `response` ≥ 400 | Console error | Its `location().url` |
+|---|---|---|---|---|
+| Own-origin fetch, 404 | — | 404 | "Failed to load resource: the server responded with a status of 404 (File not found)" | the failed URL |
+| Own-origin favicon, 404 (Chrome asks for it by itself) | — | — | same text | `/favicon.ico` |
+| Third-party script, port closed | `net::ERR_CONNECTION_REFUSED` | — | "Failed to load resource: net::ERR_CONNECTION_REFUSED" | the script's URL |
+| Third-party image, 404 | `net::ERR_BLOCKED_BY_ORB` | — | none | — |
+| Fetch aborted by the page | `net::ERR_ABORTED` | — | none | — |
+| The app's own `console.error` | — | — | "app error after send" | the page's URL |
+
+- Chrome's own "Failed to load resource" lines carry the failed resource's URL in `location().url`, so a check can judge them by origin.
+- The favicon request shows up only as such a console line, with no request event.
+
+**Video over `connectOverCDP` works.**
+
+- It needs Playwright's ffmpeg: a 1.5 MiB download by `playwright install ffmpeg` into Playwright's cache folder, `~/Library/Caches/ms-playwright` by default.
+- Without it, `newPage` throws "Executable doesn't exist at …/ffmpeg-1013/ffmpeg-mac".
+- Codex's sandbox can read that folder but not write to it, so ffmpeg has to be installed outside the sandbox.
+- The default size fits within 800×800: 800×500 for 1440×900, and 368×800 for 390×844.
+
+**Playwright Test, the test runner.**
+
+- Package: `@playwright/test` 1.64.1, 18 MB together with `playwright` and `playwright-core`.
+- Setup: [`fixtures.js`](browser-drivers/after-b/fixtures.js) swaps the `browser` fixture for `chromium.connectOverCDP`. [`playwright.config.js`](browser-drivers/after-b/playwright.config.js) runs two projects (1440×900, and 390×844 with phone emulation, both DPR 2) with trace, video and screenshots on.
+- **Outside any sandbox:** 2 passed in 2.3 s (4.3 s wall).
+- **Inside Codex's sandbox** (`codex exec`, `workspace-write`, network on): 2 passed in 2.3 s. Codex used 79,179 input tokens (65,536 cached), about the same as the library script's 78,646, so the cost is Codex's own start-up, not the check.
+- **`codex sandbox -P :workspace`** blocks network, so the run could not reach Chrome (`network-outbound remote:*:4291` denied). `-c sandbox_workspace_write.network_access=true` doesn't change that profile. A write to `~/Library/Caches` was refused under it, as expected.
+- **Fault:** `screenshot: 'on'` saved three images per test:
+  - an `about:blank` page (756×469);
+  - the other project's page;
+  - its own page.
+
+  Over `connectOverCDP` the runner sees every page in the shared Chrome. Screenshots have to be taken explicitly on the test's own page. The videos (one per test, the right size) and the traces (a 195 KB zip of 36 files) were correct.
+
 ## Not verified
 
-- Playwright `recordVideo` over `connectOverCDP`.
 - Whether Playwright CLI's daemon folder can be moved into the workspace by a setting.
 - (c)'s cost for a complete check. It stopped before the screenshot, so the full cost is higher than measured.
 - How (c)'s cost looks in Claude Code. Only Codex was measured.
