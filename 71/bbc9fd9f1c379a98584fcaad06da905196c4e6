@@ -1,0 +1,19 @@
+docs/research/browser-drivers.md
+  s_aa750176967f2c::t_86a3d9f8e6f60e 124-147
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "71bbc9fd9f1c379a98584fcaad06da905196c4e6",
+  "prompts": {},
+  "sessions": {
+    "s_aa750176967f2c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "43d51b9c-1cba-410a-ae46-632e4536b59f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
