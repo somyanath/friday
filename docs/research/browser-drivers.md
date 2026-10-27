@@ -121,6 +121,30 @@ Somya chose (b) on 2026-10-27. Three follow-up tests ran on the same Mac and Chr
 
   Over `connectOverCDP` the runner sees every page in the shared Chrome. Screenshots have to be taken explicitly on the test's own page. The videos (one per test, the right size) and the traces (a 195 KB zip of 36 files) were correct.
 
+## Projects that aren't Node projects
+
+Somya asked on 2026-10-27 how a `package.json` would affect a project that has none.
+
+**What hosting platforms do with a root `package.json`.** They pick a project's language from the files at its root.
+
+- **Heroku, classic buildpacks.** Heroku's [changelog of 29 October 2015](https://devcenter.heroku.com/changelog-items/754) says adding a `package.json` "would trigger detection as a Node.js application" in "an existing Java/Python/PHP/… codebase". Apps are pinned to their buildpack after the first successful build, so the risk is a new app's first deploy.
+- **Heroku, Cloud Native Buildpacks** ([`builder-24/builder.toml`](https://github.com/heroku/cnb-builder-images/blob/main/builder-24/builder.toml)).
+  - The Python group comes first and doesn't include Node.
+  - The second group is Ruby, with Node.js as optional, so a Ruby app gets the Node.js buildpack too.
+  - Node alone comes last.
+  - [Detection runs on every deploy](https://devcenter.heroku.com/articles/buildpacks) unless `project.toml` names the buildpacks.
+- **Railway (Railpack)** ([`core/providers/provider.go`](https://github.com/railwayapp/railpack/blob/main/core/providers/provider.go)). The order is "important here. The first provider that returns true from Detect() will be used": PHP, Go, Java, Rust, Ruby, Elixir, Python, Deno, .NET, then Node. The Ruby and PHP providers call Node's detection, and when it matches they add Node (PHP: `DeployWithNode`).
+- **Google Cloud buildpacks**, the generic builder ([`builders/gcp/base/builder.toml`](https://github.com/GoogleCloudPlatform/buildpacks/blob/main/builders/gcp/base/builder.toml)). The .NET, Dart, Go, Java, Python, Ruby and PHP groups come before every Node.js group, and the Rails group includes `google.nodejs.runtime`.
+- **GitHub's language bar.** Linguist's [`vendor.yml`](https://github.com/github-linguist/linguist/blob/main/lib/linguist/vendor.yml) ignores particular folders (`.vscode/`, `.yarn/releases/`, …), not dot-folders in general, so test files under `.agents/` count wherever Playwright is installed.
+
+**Playwright kept in `.agents/` instead of the root.** This was tested on a fake Flask project, with Chrome attached over CDP as before.
+
+- **Layout:** `requirements.txt` and `app.py` at the root. `.agents/package.json` holds only `@playwright/test` 1.64.1, and `.agents/.gitignore` holds `node_modules/`. The skill is in `.agents/skills/verify-web/`, with `.claude/skills/verify-web` symlinked to it.
+- **Install:** `npm install` in `.agents/` added 3 packages in 2 s and downloaded no browser. Nothing changed at the root, and `git status` showed no `node_modules`.
+- **Through the symlink:** `.agents/node_modules/.bin/playwright test --config .claude/skills/verify-web/playwright.config.ts` passed both sizes. Playwright reported the real path (`.agents/skills/verify-web/features/contact.spec.ts`), and the TypeScript config and tests ran with no TypeScript installed.
+- **Repo after the runs:** unchanged. The output went to `VERIFY_OUT`.
+- **Same files with Playwright moved to a root `package.json` and `node_modules`:** passed unchanged. Node looks for packages from the file's folder upward, so one set of skill files works in both layouts.
+
 ## Not verified
 
 - Whether Playwright CLI's daemon folder can be moved into the workspace by a setting.
