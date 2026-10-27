@@ -1,0 +1,25 @@
+docs/research/browser-drivers.md
+  s_aa750176967f2c::t_19fc0baa7edead 1-90
+docs/research/browser-drivers/cdp-check.mjs
+  s_aa750176967f2c::t_3881e4d6339d13 1-58
+docs/research/browser-drivers/pw-check.mjs
+  s_aa750176967f2c::t_68937d6d933191 1-28
+docs/research/browser-drivers/test-page.html
+  s_aa750176967f2c::t_eb2c7de18deb66 1-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ab32827c04ffad6c2720a273ded41d33e53ec519",
+  "prompts": {},
+  "sessions": {
+    "s_aa750176967f2c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "43d51b9c-1cba-410a-ae46-632e4536b59f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
