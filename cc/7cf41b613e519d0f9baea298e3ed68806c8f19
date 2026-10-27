@@ -1,0 +1,26 @@
+docs/specs/skill-rulings.md
+  s_aa750176967f2c::t_7ef41c2e496de4 515-516
+GLOSSARY.md
+  s_aa750176967f2c::t_c073c44254e051 186
+  s_aa750176967f2c::t_25733c2ea2b498 189-192
+docs/adr/0011-live-checks-are-playwright-test-files.md
+  s_aa750176967f2c::t_3eb7e1a8404711 1-25
+docs/specs/verification-skill.md
+  s_aa750176967f2c::t_5a052678d69023 1-227
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cc7cf41b613e519d0f9baea298e3ed68806c8f19",
+  "prompts": {},
+  "sessions": {
+    "s_aa750176967f2c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "43d51b9c-1cba-410a-ae46-632e4536b59f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
