@@ -1,0 +1,29 @@
+docs/research/browser-drivers.md
+  s_aa750176967f2c::t_30e211b26245d0 85-123
+docs/research/browser-drivers/after-b/contact.spec.js
+  s_aa750176967f2c::t_bfa924bbf33062 1-7
+docs/research/browser-drivers/after-b/error-sources.mjs
+  s_aa750176967f2c::t_abac6d85a7e1b7 1-22
+docs/research/browser-drivers/after-b/errors-page.html
+  s_aa750176967f2c::t_e27067a67c4c63 1-13
+docs/research/browser-drivers/after-b/fixtures.js
+  s_aa750176967f2c::t_cd40aec46e84f8 1-6
+docs/research/browser-drivers/after-b/playwright.config.js
+  s_aa750176967f2c::t_d482d6b1ad1126 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "121c5893bbfe91f00575b62a642183fc5d55084e",
+  "prompts": {},
+  "sessions": {
+    "s_aa750176967f2c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "43d51b9c-1cba-410a-ae46-632e4536b59f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
