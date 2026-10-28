@@ -1,0 +1,44 @@
+GLOSSARY.md
+  s_d33390810b070e::t_40fdcecf54792b 209-212
+  s_d33390810b070e::t_68cfab59691718 17-24
+docs/specs/friday-tdd.md
+  s_d33390810b070e::t_98cba6e46c0d69 1-88
+docs/specs/friday-pr.md
+  s_d33390810b070e::t_2af27e7ba99a6e 1-139
+docs/specs/verification-skill.md
+  s_d33390810b070e::t_b37c362a816bbe 77
+docs/specs/design-skill.md
+  s_d33390810b070e::t_9db32e16736639 271
+  s_d33390810b070e::t_1102b375b44317 237
+docs/specs/entry-command.md
+  s_d33390810b070e::t_6bf1301c830c64 112
+  s_d33390810b070e::t_b4a57e37ff95d6 126
+docs/adr/0012-each-graph-ticket-is-its-own-fleet-session-and-pr.md
+  s_d33390810b070e::t_87f1743bf5eb27 1-18
+docs/specs/skill-rulings.md
+  s_d33390810b070e::t_f5cbfa9fb50ec8 343
+  s_d33390810b070e::t_e5cdc5e2b6f2e2 351,356-357,359-361
+  s_d33390810b070e::t_8c9ebb73869496 377
+  s_d33390810b070e::t_7691ecbe90a16b 275
+  s_d33390810b070e::t_85e2c0b7a75de9 434
+  s_d33390810b070e::t_91da4c63abcce1 380
+  s_d33390810b070e::t_df2aa9da8d63ef 452,457
+docs/specs/friday-implement.md
+  s_d33390810b070e::t_27c267e9c31352 1-238
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "da5412afc141d4ab8f3f217e854444ecface94cb",
+  "prompts": {},
+  "sessions": {
+    "s_d33390810b070e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a6731adc-2ba0-439c-b95d-1e2771474f00",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Somyanath_Mohanty <mohantysomyanath@gmail.com>"
+    }
+  }
+}
