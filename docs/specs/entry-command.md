@@ -109,7 +109,7 @@ Every UI Route goes into the design skill, which picks Emil's skills (ADR-0008).
 | Task | Playbook |
 |---|---|
 | New behaviour that fits one session | `friday-implement`. It grills Somya first (`matt-grilling`) only when it can't write a Finish condition from the request. |
-| New behaviour needing several sessions | `matt-grill-with-docs`, then `matt-to-spec`, then `friday-to-tickets`. The tickets then run through `friday-implement` or an Unattended run. |
+| New behaviour needing several sessions | `matt-grill-with-docs`, then `matt-to-spec`, then `friday-to-tickets`. The tickets then run through `friday-implement`'s graph loop, with Somya or as an Unattended run (ADR-0012). |
 | Too foggy to plan | `matt-wayfinder` |
 | A bug | `friday-debugging` |
 | Performance | `friday-debugging`'s performance branch; its hillclimb mode for one target number |
@@ -123,7 +123,7 @@ Every UI Route goes into the design skill, which picks Emil's skills (ADR-0008).
 
 | Task | Playbook |
 |---|---|
-| "check on PR 42", "get it green" | `friday-implement`'s PR stage. It drives the PR to ready and never merges. |
+| "check on PR 42", "get it green" | `friday-implement`'s PR stage: `check` mode for one status pass, `drive` mode to a Ready PR. It never merges. |
 | "merge PR 42" | The merge step: the Verdict command, then `gh pr merge --squash --match-head-commit`. UI work is left for Somya to merge in the browser. At attended, the merge hook asks Somya. A background session refuses (#19). |
 | "pick up where we left off" / "pause" | `friday-pickup-note`, read side / write side |
 

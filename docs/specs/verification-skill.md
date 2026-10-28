@@ -74,7 +74,7 @@ Each command returns JSON, and its error messages say what to do instead.
 
 - **Build mode:**
   - `--dev` (the dev server) for Builders' self-checks and Critic rounds;
-  - `--prod` (the production build) for the Verifier's Live check behind a Verdict and for Ship gate evidence.
+  - `--prod` (the production build) for the Verifier's Live check behind a Verdict, for Ship gate evidence, and for a Builder's last Live check before its PR opens ([`friday-implement`](friday-implement.md#one-ticket-branch-skillmd)).
 - **Ports:** the skill uses the workspace's block of 10 ports, which Superset's setup script assigns (ADR-0003).
   - `SKILL.md` names which ports of the block it uses, such as app, API and Chrome.
   - `launch` refuses ports outside the block.

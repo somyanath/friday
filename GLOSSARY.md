@@ -14,6 +14,14 @@ _Avoid_: parallel agents (ambiguous), swarm
 Several independent agent sessions, each in its own git worktree on its own branch, each taking its own job to the end, such as Define's four Builders.
 _Avoid_: parallel agents (ambiguous), background agents
 
+**Ticket graph**:
+A set of tickets linked by "blocked by" edges, such as the tickets written for one spec. Each ticket is its own job with its own PR into `main`.
+_Avoid_: task graph, stack, queue
+
+**Frontier**:
+The tickets of a ticket graph or a map that can start now: open, every blocker closed, and not claimed.
+_Avoid_: queue, ready list
+
 **Unattended run**:
 Agent work that continues without Somya present, such as an overnight run or a scheduled job.
 _Avoid_: async, autopilot
@@ -197,6 +205,10 @@ _Avoid_: live lane, smoke test
 **Verdict**:
 A Verifier's Pass, Fail or Inconclusive on one exact commit. A new commit voids it unless the patch is unchanged.
 _Avoid_: approval, review, sign-off
+
+**Ready PR**:
+A PR that nothing an agent may fix still blocks: GitHub would merge it now, or it waits only for Somya's code-owner review. Ready never means merged.
+_Avoid_: merge-ready, green
 
 **Finish condition**:
 A statement of done, written before work starts, that commands can pass or fail.

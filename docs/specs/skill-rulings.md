@@ -272,6 +272,7 @@ Friday ends up with 13 `friday-` skills, 10 `matt-` copies and 15 `pstack-` copi
 
 ### `friday-tdd`
 
+- **Spec:** [`friday-tdd.md`](friday-tdd.md).
 - **Built from:** Matt `tdd`; pstack `tdd`, `principle-test-behavior-not-implementation`.
 - **Place:** Non-UI work, Refinement.
 - **Must do:**
@@ -339,6 +340,7 @@ Friday ends up with 13 `friday-` skills, 10 `matt-` copies and 15 `pstack-` copi
     - its test seams (Q10)
     - the answer to "what can I demo when this is done?"
   - **UI tickets** are marked for the Ship gate.
+  - **Shared files:** two tickets that touch the same shared file get a blocking link, so a graph never runs them side by side ([#23](https://github.com/somyanath/friday/issues/23)).
   - **When to plan:** skip the plan for a one- or two-file change, and settle open questions by prototype first.
   - **Wide refactors** follow expand, migrate, contract.
   - **Dropped:** the ten-lane template, cloud machines and the plan-lint script.
@@ -346,16 +348,17 @@ Friday ends up with 13 `friday-` skills, 10 `matt-` copies and 15 `pstack-` copi
 
 ### `friday-implement`
 
+- **Spec:** [`friday-implement.md`](friday-implement.md).
 - **Built from:** Matt `implement`, `implement-spec`; pstack `feature`, `autopilot-full`, `autopilot-stack`, `babysit`, `refactoring` playbooks.
 - **Place:** Non-UI work, Refinement.
 - **Must do:**
   - **One-ticket branch:** `friday-tdd` at the ticket's seams, Matt's test cadence, verification on the running app, small commits, and a PR opened ready only after its Live check passes (Q15).
-  - **Graph branch:**
-    - Matt's frontier, one worktree per ticket and short pointers between agents.
+  - **Graph branch** (the graph loop, ADR-0012):
+    - Matt's frontier, one Fleet session and worktree per ticket, and short pointers between agents.
     - Nothing merges without a Verdict from an agent that didn't write it, and PRs are never stacked.
-    - It closes its own ticket and works out which tickets are ready from what has actually merged.
-    - Two tickets that touch the same shared file get a blocking link.
-    - Checks that need git-ignored files run in the main checkout.
+    - Each PR closes its own ticket on merge, and the loop works out which tickets are ready from what has actually merged.
+    - It trusts the blocking links `friday-to-tickets` adds between tickets that touch the same shared file.
+    - The rule that checks needing git-ignored files run in the main checkout is dropped: Superset's setup script gives each workspace what checks need ([#23](https://github.com/somyanath/friday/issues/23)).
   - **Autonomy level** sets how far it runs: unattended to PR, or unattended to merge.
   - **Before opening the PR,** it runs `emil-unslop-code` on its own diff.
   - **PR stage (from babysit):**
@@ -371,10 +374,10 @@ Friday ends up with 13 `friday-` skills, 10 `matt-` copies and 15 `pstack-` copi
       - answer a false claim with the proof
       - never change code just to quiet a bot
       - send anything touching security, auth, data or migrations to Somya
-    - "Ready" means GitHub says the PR can merge. It never merges; that's the merge step's job.
+    - It stops at a Ready PR: GitHub's merge state is clean, or blocked only by Somya's code-owner review. It never merges; that's the merge step's job.
   - **Refactor branch (from refactoring):** pin behaviour with a test first, remove before adding, and move in small steps that keep the test passing, then prove nothing changed. Use `pstack-visual-parity` when UI code is touched. A redesign goes to `friday-architect`.
   - **Dropped:** cloud agents, Origin, Bugbot, the stack rules, and pstack's PR-watcher script (it uses `gh`).
-- **Calls:** `friday-tdd`, `friday-pr`, `emil-unslop-code`, `pstack-visual-parity`, the Verification skill.
+- **Calls:** `friday-tdd`, `friday-pr`, `emil-unslop-code`, `pstack-visual-parity`, the Verification skill; also `matt-grilling`, `pstack-decision-trail`, `pstack-ketchup`, and `friday-review` for a graph's final check ([spec](friday-implement.md)).
 
 ### `friday-debugging`
 
@@ -428,7 +431,7 @@ Friday ends up with 13 `friday-` skills, 10 `matt-` copies and 15 `pstack-` copi
   - **Framing:** `figure-it-out`'s framing, with a Decision trail.
   - **Context:** protect the context window.
   - **Don't block on Somya,** but the gates, the Always-pause list and a Rule conflict always stop the run.
-  - **Fixed steps are a script:** choosing ready tickets, dispatching, and waiting for Verdicts. The agent judges only what needs judgement.
+  - **Fixed steps are a script:** choosing ready tickets, dispatching, and waiting for Verdicts. The agent judges only what needs judgement. A ticket graph runs through `friday-implement`'s graph loop and its frontier script, not a loop of its own (ADR-0012).
   - **Dropped:** the rest of `orchestrate`, which is team-scale.
 - **Calls:** `pstack-decision-trail`, `friday-implement`, `pstack-ketchup`.
 
@@ -446,11 +449,12 @@ Friday ends up with 13 `friday-` skills, 10 `matt-` copies and 15 `pstack-` copi
 
 ### `friday-pr`
 
+- **Spec:** [`friday-pr.md`](friday-pr.md).
 - **Built from:** Matt `pr`; pstack `opening-a-pr` playbook.
 - **Place:** Non-UI work, Deliver, Refinement.
 - **Must do:**
   - **Body:** Matt's single visual, evidence tiers and Merge Danger line (one-way or two-way door, plus blast radius), inside pstack's sections and its one-minute length cap.
-  - **Commits:** small and ordered, with Conventional Commits titles.
+  - **Commits:** small, made as the work goes and never reshaped, since merges are squash only; the PR title is a Conventional Commits title ([#23](https://github.com/somyanath/friday/issues/23)).
   - **Opening:** ready, never draft, and only after the Live check passes (Q15).
   - **Evidence:** a before-and-after from the Live check.
   - **Merge Danger:** the Verifier checks it.

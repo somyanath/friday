@@ -234,7 +234,7 @@ Sonnet builds on `surface/<surface>`, orchestrated by the Opus session; the Veri
 7. **Design language.** If the final values aren't named tokens yet, Sonnet makes them tokens first, since `emil-design-system-docs` needs them. It then writes the Design language, and the skill adds:
    - motion rules: durations, easings, what moves, reduced motion;
    - for a pitch page, a short voice section: the voice and what each message means.
-8. **Proof and PR:** a Live check, the Verdict command (other family) posting the `verdict` check on the head commit, screenshots of the changed states at both sizes, and a screen recording. The Agent account opens a PR labelled `ui-work`.
+8. **Proof and PR:** a Live check, the Verdict command (other family) posting the `verdict` check on the head commit, screenshots of the changed states at both sizes, and a screen recording. The Agent account opens a PR labelled `ui-work` with `friday-pr`, and `friday-implement`'s PR stage drives it to a Ready PR.
 
 **The Design language** lives in the project beside the code (`DESIGN.md` at the root, or a docs folder for a bigger system), one per app. A Surface that is a section adds its own part. It's a Pause path, so it changes only with Somya's sign-off. It holds the project's own rules, nothing of Friday's.
 
@@ -268,7 +268,7 @@ UI work whose look is already decided. One Sonnet 5.5 session; the Verifier and 
 4. **Emil's passes on what changed:** `emil-unslop-design` and `emil-unslop-writing` (keeping the page's voice), `emil-ui-polish`, the floors, and an `emil-ui-review` self-check.
 5. **One Critic pass** (Sol): does it fit the Design language, or the shipped look, and Emil's craft bar? Up to 2 fix rounds. Skipped for a bug whose fix restores the intended look, such as the wrong blue.
 6. **Proof:** a Live check, a Verdict, before and after screenshots at both sizes, and a screen recording when motion or interaction changed.
-7. A PR labelled `ui-work`, then the Ship gate, and Somya merges.
+7. A PR labelled `ui-work` (`friday-pr`), driven to a Ready PR by `friday-implement`'s PR stage, then the Ship gate, and Somya merges.
 
 Two rules on top:
 
